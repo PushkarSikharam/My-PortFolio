@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #0f172a;
+    --muted: #64748b;
+    --surface: #f8fafc;
+    --surface-light: #f1f5f9;
+    --border: #e2e8f0;
+    --accent: #2563eb;
+  }
+
+  .dark {
+    --background: #050505;
+    --foreground: #ededed;
+    --muted: #a1a1aa;
+    --surface: #121212;
+    --surface-light: #1e1e1e;
+    --border: #27272a;
+    --accent: #3b82f6;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-accent selection:text-background;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply backdrop-blur-md border border-border;
+    background-color: color-mix(in srgb, var(--surface) 60%, transparent);
+  }
+  
+  .glass-card {
+    @apply backdrop-blur-sm border border-border rounded-xl transition-all duration-300;
+    background-color: color-mix(in srgb, var(--surface) 30%, transparent);
+  }
+  .glass-card:hover {
+    background-color: color-mix(in srgb, var(--surface) 50%, transparent);
+    border-color: color-mix(in srgb, var(--accent) 50%, transparent);
+  }
+}
+
+/* Subtle grid noise background */
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(128,128,128,0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(128,128,128,0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(circle at center, black, transparent 80%);
+}
