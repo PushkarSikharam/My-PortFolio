@@ -1,17 +1,24 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { experience, publications } from "@/data/data";
-import { BookOpen, ExternalLink } from "lucide-react";
+import { experience, publications, education } from "@/data/data";
+import { BookOpen, ExternalLink, GraduationCap, Briefcase } from "lucide-react";
 
 export default function Experience() {
   return (
     <section id="experience" className="py-24 border-t border-border/50">
       <div className="mb-16">
-        <h2 className="text-3xl font-bold font-sans mb-4">Experience & Research</h2>
+        <h2 className="text-3xl font-bold font-sans mb-4">Background</h2>
         <p className="text-muted text-lg max-w-2xl">
           Bridging the gap between academic rigor and software execution.
         </p>
+      </div>
+
+      <div className="mb-10">
+        <h3 className="text-2xl font-bold font-sans mb-3 flex items-center gap-3">
+          <Briefcase className="w-6 h-6 text-accent" />
+          Experience
+        </h3>
       </div>
 
       <div className="space-y-12 max-w-4xl">
@@ -47,6 +54,32 @@ export default function Experience() {
                 </span>
               ))}
             </div>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Education Section */}
+      <div className="mt-24 mb-10">
+        <h3 className="text-2xl font-bold font-sans mb-3 flex items-center gap-3">
+          <GraduationCap className="w-6 h-6 text-accent" />
+          Education
+        </h3>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
+        {education.map((edu) => (
+          <motion.div 
+            key={edu.id}
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="p-6 rounded-xl border border-border glass-card"
+          >
+            <h4 className="text-lg font-bold text-foreground mb-1">{edu.degree}</h4>
+            <p className="text-muted font-mono text-sm mb-3">{edu.school}</p>
+            <span className="inline-block px-3 py-1 bg-background border border-border rounded-full text-xs font-mono text-accent">
+              {edu.year}
+            </span>
           </motion.div>
         ))}
       </div>

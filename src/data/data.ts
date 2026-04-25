@@ -86,3 +86,18 @@ export const publications = [
     link: "https://ijsrem.com/download/the-revolution-in-healthcare-health-information-technology/"
   },
 ];
+
+export const education = [
+  {
+    id: "edu-1",
+    degree: "Master of Science in Computer Science",
+    school: "Texas A&M University - Corpus Christi",
+    year: "Aug 2024 - May 2026"
+  },
+  {
+    id: "edu-2",
+    degree: "Bachelor of Technology in Computer Science",
+    school: "Sri Chandrasekharendra Saraswathi Vishwa Maha Vidyalaya University",
+    year: "2020-2024"
+  }
+];

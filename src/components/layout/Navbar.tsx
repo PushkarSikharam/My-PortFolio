@@ -41,7 +41,7 @@ export default function Navbar() {
             <a href="#capabilities" className="text-muted hover:text-foreground transition-colors">Capabilities</a>
             <a href="#projects" className="text-muted hover:text-foreground transition-colors">Systems</a>
             <a href="#experience" className="text-muted hover:text-foreground transition-colors">Experience</a>
-            <a href="/SaiPushkar Resume.pdf" target="_blank" className="text-accent hover:text-accent/80 transition-colors">
+            <a href="/resume.pdf" target="_blank" className="text-accent hover:text-accent/80 transition-colors">
               Resume
             </a>
           </nav>

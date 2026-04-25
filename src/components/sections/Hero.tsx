@@ -40,7 +40,7 @@ export default function Hero() {
           <a href="#projects" className="px-6 py-3 bg-foreground text-background font-medium rounded-md hover:bg-foreground/90 transition-colors">
             View Systems
           </a>
-          <a href="/Sai Pushkar Sikharam Resume.pdf" target="_blank" className="px-6 py-3 bg-surface border border-border font-medium rounded-md hover:border-accent/50 transition-colors">
+          <a href="/resume.pdf" target="_blank" className="px-6 py-3 bg-surface border border-border font-medium rounded-md hover:border-accent/50 transition-colors">
             Download Resume
           </a>
         </div>
