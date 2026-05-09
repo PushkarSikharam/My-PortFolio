@@ -8,14 +8,14 @@ export default function Projects() {
   return (
     <section id="projects" className="py-24 border-t border-border/50">
       <div className="mb-16">
-        <h2 className="text-3xl font-bold font-sans mb-4">Featured Systems</h2>
+        <h2 className="text-3xl font-bold font-sans mb-4">Featured Projects</h2>
         <p className="text-muted text-lg max-w-2xl">
-          Architectural breakdowns of production-grade pipelines and models.
+          Selected AI, data, and backend work with architecture, implementation decisions, and measurable outcomes.
         </p>
       </div>
 
       <div className="space-y-24">
-        {projects.map((project, index) => (
+        {projects.map((project) => (
           <motion.div 
             key={project.id}
             initial={{ opacity: 0, y: 20 }}
@@ -35,8 +35,8 @@ export default function Projects() {
                 ))}
               </div>
 
-              {project.githubUrl !== "#" && (
-                <a href={project.githubUrl} target="_blank" className="inline-flex items-center gap-2 text-accent hover:text-accent/80 transition-colors text-sm font-medium">
+              {project.githubUrl.startsWith("http") && (
+                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-accent hover:text-accent/80 transition-colors text-sm font-medium">
                   View Repository <ArrowUpRight className="w-4 h-4" />
                 </a>
               )}
@@ -44,7 +44,7 @@ export default function Projects() {
 
             <div className="md:col-span-8 glass-card p-8">
               <div className="mb-8">
-                <h4 className="text-sm font-mono text-muted uppercase tracking-wider mb-3">Architecture Base</h4>
+                <h4 className="text-sm font-mono text-muted uppercase tracking-wider mb-3">Architecture Snapshot</h4>
                 <div className="p-4 bg-background border border-border rounded-lg font-mono text-sm text-foreground/80 break-words">
                   {project.architecture}
                 </div>

@@ -2,18 +2,40 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const closeOnResize = () => {
+      if (window.innerWidth >= 768) {
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", closeOnResize);
+    return () => window.removeEventListener("resize", closeOnResize);
+  }, [menuOpen]);
+
+  const links = [
+    { href: "#capabilities", label: "Capabilities" },
+    { href: "#projects", label: "Projects" },
+    { href: "#experience", label: "Experience" },
+  ];
 
   return (
     <motion.header
@@ -35,19 +57,60 @@ export default function Navbar() {
           </div>
           <span className="font-mono font-bold text-lg tracking-tight">S.P.S</span>
         </a>
-        
+
         <div className="hidden md:flex items-center gap-8">
           <nav className="flex items-center gap-6 text-sm font-medium">
-            <a href="#capabilities" className="text-muted hover:text-foreground transition-colors">Capabilities</a>
-            <a href="#projects" className="text-muted hover:text-foreground transition-colors">Systems</a>
-            <a href="#experience" className="text-muted hover:text-foreground transition-colors">Experience</a>
-            <a href="/resume.pdf" target="_blank" className="text-accent hover:text-accent/80 transition-colors">
+            {links.map((link) => (
+              <a key={link.href} href={link.href} className="text-muted hover:text-foreground transition-colors">
+                {link.label}
+              </a>
+            ))}
+            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent/80 transition-colors">
               Resume
             </a>
           </nav>
           <ThemeToggle />
         </div>
+
+        <div className="md:hidden flex items-center gap-3">
+          <ThemeToggle />
+          <button
+            type="button"
+            onClick={() => setMenuOpen((open) => !open)}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            className="p-2 rounded-lg border border-border bg-surface text-foreground"
+          >
+            {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+        </div>
       </div>
+
+      {menuOpen && (
+        <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-md">
+          <nav className="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-4 text-sm font-medium">
+            {links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setMenuOpen(false)}
+                className="text-muted hover:text-foreground transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+            <a
+              href="mailto:s.sai.pushkar@gmail.com"
+              onClick={() => setMenuOpen(false)}
+              className="text-muted hover:text-foreground transition-colors"
+            >
+              Contact
+            </a>
+            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent/80 transition-colors">
+              Resume
+            </a>
+          </nav>
+        </div>
+      )}
     </motion.header>
   );
 }

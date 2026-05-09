@@ -15,7 +15,7 @@ export default function Home() {
         <Experience />
 
         <footer className="py-12 border-t border-border/50 text-center text-muted font-mono text-sm mt-12">
-          <p>Architected by Sai Pushkar Sikharam • {new Date().getFullYear()}</p>
+          <p>Architected by Sai Pushkar Sikharam | {new Date().getFullYear()}</p>
         </footer>
       </main>
     </>

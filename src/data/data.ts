@@ -4,55 +4,62 @@ export const experience = [
     role: "Graduate Research Assistant",
     company: "Texas A&M University - Corpus Christi",
     duration: "2025 - Present",
+    link: "https://github.com/PushkarSikharam/Vulnerability-Detection-on-CodeBase",
     bullets: [
-      "Designed and implemented an automated GitHub security auditing pipeline analysing 89 open-source repositories, correlating Issues, PRs, Commits, and Releases to detect CVE/CWE vulnerabilities.",
-      "Implemented regex-based detection, confidence scoring, fix-version resolution (commit SHA to release tag mapping), and rate-limit–aware scalable API orchestration.",
-      "Contributed to Crypto Fusion, a multimodal AI framework integrating Temporal Graph Neural Networks, Transformers, and Reinforcement Learning for financial forecasting and portfolio optimization.",
-      "Engineered large-scale multimodal data pipelines (market, Reddit, news; 200+ assets, 2017–2025) and developed FinBERT/LLM-based sentiment and correlation models for financial forecasting.",
-      "Achieved 8.3% RMSE reduction, +8.7 percentage points directional accuracy, and +0.29 Sharpe ratio improvement at 10 bps transaction costs versus state-of-the-art baselines.",
-      "Built a hybrid time-series model combining Prophet and XGBoost to improve rainfall forecasting accuracy for Corpus Christi. Processed 2010–2025 weather data and engineered lag/rolling features to capture temporal patterns",
-      "Reduced prediction error to MAE: 2.18 mm, RMSE: 6.25 mm through model stacking and evaluation using R² and RMSE."
+      "Designed and implemented a GitHub CVE vulnerability benchmark pipeline that mines repository histories, maps patched CVEs, and builds ground-truth datasets for LLM-based vulnerability detection.",
+      "Built scalable Python data collection and analysis workflows using GitHub APIs, regex/CWE tagging, fix-version resolution, and rate-limit-aware orchestration for large-scale security research.",
+      "Contributed to Crypto Fusion, a multimodal AI framework combining Temporal Graph Neural Networks, Transformers, and Reinforcement Learning for financial forecasting and portfolio optimization.",
+      "Engineered multimodal data pipelines across market, Reddit, and news sources for 200+ assets, and developed FinBERT/LLM-driven sentiment and correlation features for downstream modeling.",
+      "Improved forecasting quality with an 8.3% RMSE reduction, +8.7 percentage points directional accuracy, and +0.29 Sharpe ratio improvement at 10 bps transaction costs versus baseline models.",
+      "Built a hybrid Prophet + XGBoost forecasting pipeline for Corpus Christi rainfall prediction, using lagged and rolling weather features from 2010-2025 to capture seasonality and nonlinear patterns.",
+      "Reduced prediction error to 2.18 mm MAE and 6.25 mm RMSE through model stacking, feature engineering, and iterative evaluation."
     ],
-    tech: ["Python", "Vulnerability Analysis", "Data Engineering", "Research"]
+    tech: ["Python", "LLMs", "Data Pipelines", "Vulnerability Analysis", "Time-Series"]
   },
   {
     id: "python-dev",
     role: "Python Developer",
     company: "Math Buddy",
-    duration: "Past Role",
+    duration: "Mar 2022 - Dec 2022",
     bullets: [
-      "Architected backend services and API endpoints to support internal applications.",
-      "Improved system reliability via structured logging, asynchronous processing, and rigorous testing.",
-      "Collaborated across teams to deploy updates seamlessly into production environments."
+      "Architected Python backend services and API endpoints to support internal product workflows and application integrations.",
+      "Improved service reliability through structured logging, asynchronous processing patterns, and test-driven validation.",
+      "Collaborated with product and engineering stakeholders to ship production updates with minimal deployment friction."
     ],
-    tech: ["Python", "FastAPI", "Flask", "Machine Learning"]
+    tech: ["Python", "FastAPI", "Flask", "APIs", "Backend Systems"]
   }
 ];
 
 export const capabilities = [
   {
-    title: "AI Systems",
-    summary: "Building intelligent logic into robust applications.",
-    items: ["RAG Pipelines", "LLM Integration", "NLP Workflows", "Production Inference APIs"],
-    tech: "PyTorch, LangChain, HuggingFace"
+    title: "LLM Applications",
+    summary: "Designing AI features that connect retrieval, prompting, and backend logic into usable products.",
+    items: ["RAG Pipelines", "LLM Integration", "Prompt-Oriented Workflows", "Production Inference APIs"],
+    tech: "LangChain, HuggingFace, Gemini, FinBERT"
   },
   {
-    title: "Backend Engineering",
-    summary: "Architecting the core of scalable systems.",
+    title: "Data Engineering",
+    summary: "Building reliable pipelines that collect, transform, and serve structured data for ML and analytics.",
+    items: ["API Ingestion", "ETL/ELT Workflows", "Feature Engineering", "Dataset Curation"],
+    tech: "Python, SQL, GitHub API, Pandas"
+  },
+  {
+    title: "Backend Systems",
+    summary: "Architecting APIs and services that turn data and model outputs into dependable user-facing systems.",
     items: ["FastAPI Services", "Async Orchestration", "Structured Logging", "Reliable APIs"],
-    tech: "Python, Next.js, SQL/NoSQL"
+    tech: "Python, FastAPI, Flask, Next.js"
   },
   {
-    title: "Cloud, Deployment & MLOps",
-    summary: "Bridging the gap between research and production.",
-    items: ["Model Deployment", "Containerization", "CI/CD Pipelines", "Latency Optimization"],
+    title: "ML Systems & Analytics",
+    summary: "Applying machine learning and statistical modeling to solve forecasting, optimization, and decision problems.",
+    items: ["Time-Series Forecasting", "Sentiment Modeling", "Multimodal Features", "Evaluation & Optimization"],
+    tech: "XGBoost, Prophet, Transformers, PyTorch"
+  },
+  {
+    title: "Deployment & MLOps",
+    summary: "Bridging experimentation and production with pragmatic deployment and monitoring practices.",
+    items: ["Model Deployment", "Containerization", "CI/CD Pipelines", "Performance Optimization"],
     tech: "Docker, Vercel, AWS/GCP basics"
-  },
-  {
-    title: "Security & Analysis",
-    summary: "Defensive programming and auditing.",
-    items: ["Vulnerability Auditing", "Deterministic Analysis", "Rate-limit Management", "Data Integrity"],
-    tech: "GitHub API, OWASP Principles"
   }
 ];
 
@@ -70,21 +77,7 @@ export const publications = [
     venue: "IEEE - 2023 3rd International Conference on Innovative Mechanisms for Industry Applications (ICIMIA)",
     year: "2023",
     link: "https://ieeexplore.ieee.org/document/10425838"
-  },
-  {
-    id: "pub-3",
-    title: "BALANCING ENTREPRENEURSHIP AND PERSONAL LIFE",
-    venue: "International Journal of Scientific Research in Engineering and Management (IJSREM)",
-    year: "September 24 2024",
-    link: "https://ijsrem.com/download/balancing-entrepreneurship-and-personal-life/"
-  },
-  {
-    id: "pub-4",
-    title: "THE REVOLUTION IN HEALTHCARE: HEALTH INFORMATION TECHNOLOGY",
-    venue: "International Journal of Scientific Research in Engineering and Management (IJSREM)",
-    year: "November 19 2023",
-    link: "https://ijsrem.com/download/the-revolution-in-healthcare-health-information-technology/"
-  },
+  }
 ];
 
 export const education = [

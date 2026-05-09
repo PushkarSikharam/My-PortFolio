@@ -8,8 +8,49 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const jetBrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains-mono" });
 
 export const metadata: Metadata = {
-  title: "Sai Pushkar Sikharam | AI + Backend Systems Engineer",
-  description: "AI and backend systems engineer building scalable APIs, intelligent applications, and production-grade software systems.",
+  title: "Sai Pushkar Sikharam | AI/ML & Data Engineer",
+  description: "AI/ML & Data Engineer building LLM applications, data pipelines, and scalable backend systems with Python, APIs, and production-ready infrastructure.",
+  keywords: [
+    "Sai Pushkar Sikharam",
+    "AI ML Engineer",
+    "Data Engineer",
+    "LLM Applications",
+    "RAG",
+    "Python",
+    "FastAPI",
+    "Backend Engineer",
+    "Data Pipelines",
+    "Machine Learning"
+  ],
+  authors: [{ name: "Sai Pushkar Sikharam" }],
+  creator: "Sai Pushkar Sikharam",
+  publisher: "Sai Pushkar Sikharam",
+  category: "technology",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  openGraph: {
+    title: "Sai Pushkar Sikharam | AI/ML & Data Engineer",
+    description: "Portfolio of an AI/ML & Data Engineer building LLM applications, data pipelines, and scalable backend systems.",
+    type: "website",
+    siteName: "Sai Pushkar Sikharam Portfolio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sai Pushkar Sikharam | AI/ML & Data Engineer",
+    description: "LLM applications, data pipelines, and scalable backend systems built with Python-first engineering.",
+  },
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
@@ -28,6 +69,30 @@ export default function RootLayout({
           </div>
           {children}
         </ThemeProvider>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Sai Pushkar Sikharam",
+              jobTitle: "AI/ML & Data Engineer",
+              email: "mailto:s.sai.pushkar@gmail.com",
+              sameAs: [
+                "https://github.com/PushkarSikharam",
+                "https://linkedin.com/in/sai-pushkar-sikharam-167666234"
+              ],
+              knowsAbout: [
+                "LLM Applications",
+                "Data Engineering",
+                "Backend Systems",
+                "Machine Learning",
+                "FastAPI",
+                "Python"
+              ],
+            }),
+          }}
+        />
       </body>
     </html>
   );

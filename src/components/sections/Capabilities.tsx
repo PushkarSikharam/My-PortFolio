@@ -10,7 +10,7 @@ export default function Capabilities() {
       <div className="mb-16">
         <h2 className="text-3xl font-bold font-sans mb-4">What I Build</h2>
         <p className="text-muted text-lg max-w-2xl">
-          Replacing generic skills lists with capability-based positioning. Here is how I drive value.
+          I build AI/ML systems, data pipelines, and backend services that turn models into usable, production-ready products.
         </p>
       </div>
 
