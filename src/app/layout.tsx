@@ -20,7 +20,10 @@ export const metadata: Metadata = {
     "FastAPI",
     "Backend Engineer",
     "Data Pipelines",
-    "Machine Learning"
+    "Machine Learning",
+    "Cybersecurity Research",
+    "LLM Benchmarking",
+    "Vulnerability Detection"
   ],
   authors: [{ name: "Sai Pushkar Sikharam" }],
   creator: "Sai Pushkar Sikharam",
@@ -88,7 +91,9 @@ export default function RootLayout({
                 "Backend Systems",
                 "Machine Learning",
                 "FastAPI",
-                "Python"
+                "Python",
+                "Cybersecurity Research",
+                "LLM Benchmarking"
               ],
             }),
           }}

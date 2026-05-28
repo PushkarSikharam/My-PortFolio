@@ -1,6 +1,7 @@
 import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/sections/Hero";
 import Capabilities from "@/components/sections/Capabilities";
+import ResearchSpotlight from "@/components/sections/ResearchSpotlight";
 import Projects from "@/components/sections/Projects";
 import Experience from "@/components/sections/Experience";
 
@@ -11,6 +12,7 @@ export default function Home() {
       <main className="max-w-6xl mx-auto px-6">
         <Hero />
         <Capabilities />
+        <ResearchSpotlight />
         <Projects />
         <Experience />
 

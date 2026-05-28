@@ -21,21 +21,22 @@ export const projects = [
   },
   {
     id: "github-cve",
-    title: "GitHub CVE Vulnerability Benchmark Pipeline",
-    summary: "A cybersecurity mining and benchmarking pipeline for locating patched CVEs and evaluating LLM-based vulnerability detection on source code.",
-    tags: ["Python", "GitHub API", "Data Engineering", "Security"],
-    problem: "Finding vulnerability-fix evidence across large GitHub repositories is slow and noisy, and benchmarking whether LLMs can reliably localize those vulnerabilities requires a clean ground-truth pipeline.",
-    architecture: "Repository targets -> GitHub API mining -> regex/CWE analysis -> version resolution -> ground-truth dataset -> LLM vulnerability benchmarking",
+    title: "LLM Vulnerability Detection Benchmark",
+    summary: "An empirical benchmark of 810 assessments evaluating whether frontier LLMs (Gemini, Claude, GPT-4o) can detect real-world CVEs in LLM-Powered Applications under a Tri-State Temporal Framework.",
+    tags: ["Python", "LLMs", "Cybersecurity", "Benchmarking", "GitHub API"],
+    problem: "No rigorous benchmark existed to measure whether frontier LLMs can reliably distinguish vulnerable code from patched code in real-world LLM-powered applications across temporal states.",
+    architecture: "Stage 1: GitHub CVE Crawler (API mining → regex/CWE analysis → version resolution) → Stage 2: Multi-Model LLM Evaluation (snapshot resolver → context-delivery modes → tri-state scoring) → Stage 3: Stratified Audit & Rescoring Engine (Phase A audit → manifest freeze → reproducible re-scoring)",
     decisions: [
-      "Built a staged pipeline that separates GitHub mining, vulnerability labeling, version resolution, and LLM evaluation for cleaner experimentation.",
-      "Implemented rate-limit-aware API orchestration and structured analyzers to make large-scale repository mining reliable.",
-      "Used deterministic regex- and schema-driven processing to create benchmark-quality ground truth before evaluating model behavior."
+      "Invented a Tri-State Temporal Framework (Pre-Fix / Vulnerable / Patched) with stratified Phase A auditing to measure model behavior across the full vulnerability lifecycle.",
+      "Implemented 4 context-delivery modes (ARA, DCA-File, DCA-Region, DCA-Function) to isolate whether model accuracy depends on how much code context is provided.",
+      "Built a rescoring engine that regenerates all metrics from saved JSON backups without re-querying APIs, ensuring full reproducibility of reported results.",
+      "Designed rate-limit-aware multi-key API orchestration to reliably benchmark across 3 proprietary model APIs at scale."
     ],
     metrics: [
-      { label: "Repositories Analyzed", value: "89" },
-      { label: "Core Mining Modules", value: "7" },
-      { label: "Output Report", value: "XLSX" },
-      { label: "Evaluation Target", value: "LLMs" }
+      { label: "Total Assessments", value: "810" },
+      { label: "CVEs Validated", value: "30" },
+      { label: "LPA Repositories", value: "13" },
+      { label: "Frontier Models", value: "3" }
     ],
     githubUrl: "https://github.com/PushkarSikharam/Vulnerability-Detection-on-CodeBase",
   },

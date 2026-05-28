@@ -6,15 +6,17 @@ export const experience = [
     duration: "2025 - Present",
     link: "https://github.com/PushkarSikharam/Vulnerability-Detection-on-CodeBase",
     bullets: [
-      "Designed and implemented a GitHub CVE vulnerability benchmark pipeline that mines repository histories, maps patched CVEs, and builds ground-truth datasets for LLM-based vulnerability detection.",
-      "Built scalable Python data collection and analysis workflows using GitHub APIs, regex/CWE tagging, fix-version resolution, and rate-limit-aware orchestration for large-scale security research.",
+      "Led an empirical study benchmarking 3 frontier LLMs (Gemini 2.5 Flash, Claude 3.5 Sonnet, GPT-4o) across 810 total assessments on their ability to detect real-world CVEs in LLM-Powered Applications — submitted to ACSAC 2026.",
+      "Designed and implemented a Tri-State Temporal Framework with stratified Phase A auditing, evaluating model behavior across pre-fix, vulnerable, and patched code states with multiple context-delivery modes.",
+      "Built a full-stack CVE mining and benchmarking pipeline: GitHub API data collection, regex/CWE analysis, version resolution, multi-model evaluation runners, and an automated rescoring engine for reproducible results.",
+      "Discovered severe patch blindness across all models — up to 56.5% of patched (safe) code flagged as vulnerable — establishing that no current LLM is reliable as a standalone security auditor.",
       "Contributed to Crypto Fusion, a multimodal AI framework combining Temporal Graph Neural Networks, Transformers, and Reinforcement Learning for financial forecasting and portfolio optimization.",
       "Engineered multimodal data pipelines across market, Reddit, and news sources for 200+ assets, and developed FinBERT/LLM-driven sentiment and correlation features for downstream modeling.",
       "Improved forecasting quality with an 8.3% RMSE reduction, +8.7 percentage points directional accuracy, and +0.29 Sharpe ratio improvement at 10 bps transaction costs versus baseline models.",
       "Built a hybrid Prophet + XGBoost forecasting pipeline for Corpus Christi rainfall prediction, using lagged and rolling weather features from 2010-2025 to capture seasonality and nonlinear patterns.",
       "Reduced prediction error to 2.18 mm MAE and 6.25 mm RMSE through model stacking, feature engineering, and iterative evaluation."
     ],
-    tech: ["Python", "LLMs", "Data Pipelines", "Vulnerability Analysis", "Time-Series"]
+    tech: ["Python", "LLMs", "Cybersecurity", "Data Pipelines", "Benchmarking", "Time-Series"]
   },
   {
     id: "python-dev",
@@ -33,9 +35,9 @@ export const experience = [
 export const capabilities = [
   {
     title: "LLM Applications",
-    summary: "Designing AI features that connect retrieval, prompting, and backend logic into usable products.",
-    items: ["RAG Pipelines", "LLM Integration", "Prompt-Oriented Workflows", "Production Inference APIs"],
-    tech: "LangChain, HuggingFace, Gemini, FinBERT"
+    summary: "Designing AI features that connect retrieval, prompting, and backend logic into usable products — and benchmarking their reliability on real-world security tasks.",
+    items: ["RAG Pipelines", "LLM Integration", "Multi-Model Evaluation", "Security Benchmarking"],
+    tech: "Gemini, Claude, GPT-4o, LangChain, HuggingFace"
   },
   {
     title: "Data Engineering",
@@ -64,6 +66,13 @@ export const capabilities = [
 ];
 
 export const publications = [
+  {
+    id: "pub-acsac",
+    title: "Can LLMs Distinguish Vulnerable from Patched Code? An Empirical Study on LLM-Powered Applications",
+    venue: "ACSAC 2026 (Under Review)",
+    year: "2026",
+    link: "https://github.com/PushkarSikharam/Vulnerability-Detection-on-CodeBase"
+  },
   {
     id: "pub-1",
     title: "A Comprehensive Study: Machine Learning Based Analysis and Forecasting of Cryptocurrency Trends",
