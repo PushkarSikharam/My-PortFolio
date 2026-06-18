@@ -56,7 +56,7 @@ export const projects = [
       { label: "Campus Scope", value: "TAMU-CC" },
       { label: "REST Endpoints", value: "10" },
       { label: "Users Tested", value: "10+" },
-      { label: "Response Quality", value: "Quick & Accurate" }
+      { label: "Response Quality", value: "User-Tested" }
     ],
     githubUrl: "https://github.com/PushkarSikharam/Talk2Campus",
   },

@@ -7,14 +7,10 @@ export const experience = [
     link: "https://github.com/PushkarSikharam/Vulnerability-Detection-on-CodeBase",
     bullets: [
       "Led an empirical study benchmarking 3 frontier LLMs (Gemini 2.5 Flash, Claude 3.5 Sonnet, GPT-4o) across 810 total assessments on their ability to detect real-world CVEs in LLM-Powered Applications - submitted to ACSAC 2026.",
-      "Designed and implemented a Tri-State Temporal Framework with stratified Phase A auditing, evaluating model behavior across pre-fix, vulnerable, and patched code states with multiple context-delivery modes.",
       "Built a full-stack CVE mining and benchmarking pipeline: GitHub API data collection, regex/CWE analysis, version resolution, multi-model evaluation runners, and an automated rescoring engine for reproducible results.",
       "Discovered severe patch blindness across all models - up to 56.5% of patched (safe) code flagged as vulnerable - establishing that no current LLM is reliable as a standalone security auditor.",
-      "Contributed to Crypto Fusion, a multimodal AI framework combining Temporal Graph Neural Networks, Transformers, and Reinforcement Learning for financial forecasting and portfolio optimization.",
-      "Engineered multimodal data pipelines across market, Reddit, and news sources for 200+ assets, and developed FinBERT/LLM-driven sentiment and correlation features for downstream modeling.",
-      "Improved forecasting quality with an 8.3% RMSE reduction, +8.7 percentage points directional accuracy, and +0.29 Sharpe ratio improvement at 10 bps transaction costs versus baseline models.",
-      "Built a hybrid Prophet + XGBoost forecasting pipeline for Corpus Christi rainfall prediction, using lagged and rolling weather features from 2010-2025 to capture seasonality and nonlinear patterns.",
-      "Reduced prediction error to 2.18 mm MAE and 6.25 mm RMSE through model stacking, feature engineering, and iterative evaluation."
+      "Engineered multimodal data pipelines for Crypto Fusion across market, Reddit, and news sources for 200+ assets, improving forecasting quality by 8.3% RMSE with a +0.29 Sharpe ratio lift.",
+      "Built a hybrid Prophet + XGBoost rainfall forecasting model for Corpus Christi, reducing MAE from 3.16 mm to 2.18 mm through lagged features, rolling windows, and residual modeling."
     ],
     tech: ["Python", "LLMs", "Cybersecurity", "Data Pipelines", "Benchmarking", "Time-Series"]
   },
@@ -24,8 +20,8 @@ export const experience = [
     company: "Math Buddy",
     duration: "Mar 2022 - Dec 2022",
     bullets: [
-      "Architected Python backend services and API endpoints to support internal product workflows and application integrations.",
-      "Improved service reliability through structured logging, asynchronous processing patterns, and test-driven validation.",
+      "Built Python backend services and API endpoints to support internal product workflows and application integrations.",
+      "Improved service reliability with structured logging, asynchronous processing patterns, and test-driven validation.",
       "Collaborated with product and engineering stakeholders to ship production updates with minimal deployment friction."
     ],
     tech: ["Python", "FastAPI", "Flask", "APIs", "Backend Systems"]

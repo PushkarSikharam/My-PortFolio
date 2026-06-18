@@ -42,8 +42,18 @@ export default function Experience() {
 
             <ul className="space-y-3 mb-6">
               {exp.bullets.map((bullet, idx) => (
-                <li key={idx} className="text-foreground/80 leading-relaxed max-w-3xl">
-                  {bullet}
+                <li
+                  key={idx}
+                  className={`flex gap-3 leading-relaxed max-w-3xl ${
+                    idx < 2 ? "text-foreground font-medium" : "text-foreground/72"
+                  }`}
+                >
+                  <span
+                    className={`mt-2 h-1.5 w-1.5 rounded-full shrink-0 ${
+                      idx < 2 ? "bg-accent" : "bg-border"
+                    }`}
+                  />
+                  <span>{bullet}</span>
                 </li>
               ))}
             </ul>
@@ -134,9 +144,13 @@ export default function Experience() {
             transition={{ duration: 0.2 }}
             className="group"
           >
-            <a href={pub.link === "#" ? undefined : pub.link} target={pub.link === "#" ? undefined : "_blank"} rel={pub.link === "#" ? undefined : "noopener noreferrer"} className="block p-5 border-l-2 border-accent/60 hover:bg-surface/50 transition-colors duration-200">
+            <a href={pub.link === "#" ? undefined : pub.link} target={pub.link === "#" ? undefined : "_blank"} rel={pub.link === "#" ? undefined : "noopener noreferrer"} className="block p-5 rounded-xl border border-border bg-surface/40 hover:border-accent/50 hover:bg-surface/60 transition-colors duration-200">
               <div className="flex justify-between items-start gap-4">
                 <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                    <span className="text-xs font-mono text-muted">{pub.year}</span>
+                  </div>
                   <h4 className="text-lg font-bold text-foreground group-hover:text-accent transition-colors leading-snug">
                     {pub.title}
                   </h4>
@@ -146,7 +160,6 @@ export default function Experience() {
                   )}
                 </div>
                 <div className="flex flex-col items-end gap-2 shrink-0">
-                  <span className="text-accent font-mono text-sm">{pub.year}</span>
                   <ExternalLink className="w-4 h-4 text-muted group-hover:text-accent transition-colors" />
                 </div>
               </div>

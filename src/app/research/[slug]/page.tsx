@@ -88,9 +88,10 @@ export default function ResearchFindingsPage({ params }: Props) {
         <h2 className="text-2xl font-display font-bold mb-5">Findings</h2>
         <div className="space-y-4">
           {item.findings.map((finding) => (
-            <p key={finding} className="text-foreground/75 leading-relaxed border-l border-accent/50 pl-4">
-              {finding}
-            </p>
+            <div key={finding} className="flex gap-3 text-foreground/75 leading-relaxed">
+              <span className="mt-2 h-1.5 w-1.5 rounded-full bg-accent shrink-0" />
+              <p>{finding}</p>
+            </div>
           ))}
         </div>
       </section>

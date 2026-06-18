@@ -116,11 +116,13 @@ function PhaseCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay }}
-      className="card-base p-6 border-l-2"
-      style={{ borderLeftColor: phaseColors[phase] ?? "var(--accent)" }}
+      className="card-base p-6"
     >
       <div className="flex items-center gap-3 mb-3">
-        <span className="px-2.5 py-1 bg-accent/10 border border-accent/30 rounded text-accent font-mono font-bold text-sm">
+        <span
+          className="px-2.5 py-1 bg-accent/10 border border-accent/30 rounded text-accent font-mono font-bold text-sm"
+          style={{ color: phaseColors[phase] ?? "var(--accent)" }}
+        >
           {phase}
         </span>
         <h4 className="font-bold text-foreground">{label}</h4>
@@ -636,9 +638,8 @@ export default function ResearchPage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.12 }}
-                className="relative pl-8 border-l-2 border-accent/30"
+                className="rounded-lg border border-border bg-background/45 p-4"
               >
-                <div className="absolute w-3 h-3 bg-accent rounded-full -left-[7px] top-1.5" />
                 <div className="flex items-center gap-3 mb-2">
                   <span className="px-2 py-0.5 bg-accent/10 border border-accent/30 rounded text-accent font-mono font-bold text-xs">
                     {s.stage}

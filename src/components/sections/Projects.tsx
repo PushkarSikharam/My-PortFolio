@@ -19,7 +19,7 @@ function metricSentence(project: (typeof projects)[number]) {
 function projectProofLine(project: (typeof projects)[number]) {
   switch (project.id) {
     case "talk2campus":
-      return "Scoped to the TAMU-CC corpus, tested with about 10 users, and built with voice support through WhisperX.";
+      return "Scoped to the TAMU-CC corpus, tested with about 10 users, and built with WhisperX voice input.";
     case "helmet-detection":
       return "Uses two pretrained Haar cascades for rider-region and number-plate detection, with IEEE 2023 publication linkage.";
     default:
@@ -68,8 +68,11 @@ export default function Projects() {
               </div>
 
               <div className="lg:col-span-7">
-                <div className="border-l-2 border-accent/70 pl-4 mb-6">
-                  <p className="text-xs font-mono text-muted uppercase mb-2">Architecture</p>
+                <div className="rounded-lg border border-border bg-background/45 p-4 mb-6">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                    <p className="text-xs font-mono text-muted uppercase">Architecture</p>
+                  </div>
                   <p className="text-sm text-foreground/75 leading-relaxed">{project.architecture}</p>
                 </div>
 
@@ -77,7 +80,7 @@ export default function Projects() {
                   <div className="space-y-4 mb-6 text-sm text-foreground/72 leading-relaxed">
                     <p>{project.decisions[0]}</p>
                     <p>{project.decisions[1]}</p>
-                    <p className="border-l border-border pl-4 text-muted">{project.decisions[2]}</p>
+                    <p className="rounded-md border border-border bg-background/40 p-3 text-muted">{project.decisions[2]}</p>
                   </div>
                 ) : (
                   <div className="mb-6">

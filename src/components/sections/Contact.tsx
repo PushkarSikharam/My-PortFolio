@@ -22,7 +22,7 @@ export default function Contact() {
         </a>
       </div>
 
-      <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex px-5 py-3 rounded-md border border-accent text-accent hover:bg-accent hover:text-background transition-colors font-medium">
+      <a href="/Sai%20Pushkar%20Sikharam.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex px-5 py-3 rounded-md border border-accent text-accent hover:bg-accent hover:text-background transition-colors font-medium">
         Download Resume
       </a>
     </section>

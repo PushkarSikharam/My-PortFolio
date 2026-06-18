@@ -50,11 +50,11 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-8">
           <nav className="flex items-center gap-6 text-sm font-medium">
             {links.map((link) => (
-              <a key={link.href} href={link.href} className="text-muted hover:text-accent transition-colors">
+              <a key={link.href} href={link.href} className="nav-link">
                 {link.label}
               </a>
             ))}
-            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="text-accent hover:text-foreground transition-colors">
+            <a href="/Sai%20Pushkar%20Sikharam.pdf" target="_blank" rel="noopener noreferrer" className="relative text-accent hover:text-foreground transition-colors">
               Resume
             </a>
           </nav>
@@ -86,7 +86,7 @@ export default function Navbar() {
             <a href="mailto:s.sai.pushkar@gmail.com" onClick={() => setMenuOpen(false)} className="text-muted hover:text-accent transition-colors">
               Contact
             </a>
-            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="text-accent hover:text-foreground transition-colors">
+            <a href="/Sai%20Pushkar%20Sikharam.pdf" target="_blank" rel="noopener noreferrer" className="text-accent hover:text-foreground transition-colors">
               Resume
             </a>
           </nav>
