@@ -25,7 +25,7 @@ export const projects = [
     summary: "An empirical benchmark of 810 assessments evaluating whether frontier LLMs (Gemini, Claude, GPT-4o) can detect real-world CVEs in LLM-Powered Applications under a Tri-State Temporal Framework.",
     tags: ["Python", "LLMs", "Cybersecurity", "Benchmarking", "GitHub API"],
     problem: "No rigorous benchmark existed to measure whether frontier LLMs can reliably distinguish vulnerable code from patched code in real-world LLM-powered applications across temporal states.",
-    architecture: "Stage 1: GitHub CVE Crawler (API mining → regex/CWE analysis → version resolution) → Stage 2: Multi-Model LLM Evaluation (snapshot resolver → context-delivery modes → tri-state scoring) → Stage 3: Stratified Audit & Rescoring Engine (Phase A audit → manifest freeze → reproducible re-scoring)",
+    architecture: "Stage 1: GitHub CVE Crawler (API mining -> regex/CWE analysis -> version resolution) -> Stage 2: Multi-Model LLM Evaluation (snapshot resolver -> context-delivery modes -> tri-state scoring) -> Stage 3: Stratified Audit & Rescoring Engine (Phase A audit -> manifest freeze -> reproducible re-scoring)",
     decisions: [
       "Invented a Tri-State Temporal Framework (Pre-Fix / Vulnerable / Patched) with stratified Phase A auditing to measure model behavior across the full vulnerability lifecycle.",
       "Implemented 4 context-delivery modes (ARA, DCA-File, DCA-Region, DCA-Function) to isolate whether model accuracy depends on how much code context is provided.",

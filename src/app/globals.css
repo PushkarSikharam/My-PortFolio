@@ -4,23 +4,21 @@
 
 @layer base {
   :root {
-    --background: #ffffff;
-    --foreground: #0f172a;
-    --muted: #64748b;
-    --surface: #f8fafc;
-    --surface-light: #f1f5f9;
-    --border: #e2e8f0;
-    --accent: #2563eb;
+    --background: #0a0a0b;
+    --surface: #141416;
+    --surface-raised: #1c1c1f;
+    --border: #2a2a2e;
+    --foreground: #e8e6e3;
+    --muted: #8a8885;
+    --accent: #c9a55a;
+    --accent-dim: #a07d3a;
+    --danger: #e05252;
+    --safe: #4ade80;
+    --warning: #f59e0b;
   }
 
-  .dark {
-    --background: #050505;
-    --foreground: #ededed;
-    --muted: #a1a1aa;
-    --surface: #121212;
-    --surface-light: #1e1e1e;
-    --border: #27272a;
-    --accent: #3b82f6;
+  html {
+    color-scheme: dark;
   }
 
   body {
@@ -29,26 +27,60 @@
 }
 
 @layer utilities {
-  .glass {
-    @apply backdrop-blur-md border border-border;
-    background-color: color-mix(in srgb, var(--surface) 60%, transparent);
+  .card-base {
+    @apply rounded-xl border border-border bg-surface transition-colors duration-200;
   }
-  
-  .glass-card {
-    @apply backdrop-blur-sm border border-border rounded-xl transition-all duration-300;
-    background-color: color-mix(in srgb, var(--surface) 30%, transparent);
+
+  .card-base:hover {
+    background-color: var(--surface-raised);
+    border-color: color-mix(in srgb, var(--accent) 40%, transparent);
   }
-  .glass-card:hover {
-    background-color: color-mix(in srgb, var(--surface) 50%, transparent);
-    border-color: color-mix(in srgb, var(--accent) 50%, transparent);
+
+  .terminal-window {
+    @apply rounded-xl border border-border bg-[#0d0d0f] shadow-2xl;
+    box-shadow: 0 24px 80px color-mix(in srgb, var(--background) 80%, transparent);
+  }
+
+  .page-radial {
+    background:
+      radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--accent-dim) 12%, transparent) 0%, transparent 34%),
+      radial-gradient(circle at 82% 18%, color-mix(in srgb, var(--accent-dim) 7%, transparent) 0%, transparent 22%),
+      var(--background);
+  }
+
+  .subtle-dot-grid {
+    background-image: radial-gradient(color-mix(in srgb, var(--foreground) 12%, transparent) 1px, transparent 1px);
+    background-size: 28px 28px;
+    mask-image: linear-gradient(to bottom, black, transparent 75%);
+  }
+
+  .type-line {
+    display: inline-block;
+    width: 0;
+    max-width: max-content;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 1px solid var(--accent);
+  }
+
+  .type-line-active {
+    animation:
+      type-reveal 900ms steps(var(--chars)) forwards,
+      cursor-blink 800ms step-end infinite;
   }
 }
 
-/* Subtle grid noise background */
-.bg-grid-pattern {
-  background-image: 
-    linear-gradient(to right, rgba(128,128,128,0.1) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(128,128,128,0.1) 1px, transparent 1px);
-  background-size: 40px 40px;
-  mask-image: radial-gradient(circle at center, black, transparent 80%);
+@keyframes type-reveal {
+  from {
+    width: 0;
+  }
+  to {
+    width: calc(var(--chars) * 1ch);
+  }
+}
+
+@keyframes cursor-blink {
+  50% {
+    border-color: transparent;
+  }
 }

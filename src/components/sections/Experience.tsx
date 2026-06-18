@@ -8,14 +8,14 @@ export default function Experience() {
   return (
     <section id="experience" className="py-24 border-t border-border/50">
       <div className="mb-16">
-        <h2 className="text-3xl font-bold font-sans mb-4">Experience & Research</h2>
+        <h2 className="text-4xl font-bold font-display mb-4">Experience & Research</h2>
         <p className="text-muted text-lg max-w-2xl">
           Experience, research, and academic work centered on AI/ML systems, data engineering, and production software.
         </p>
       </div>
 
       <div className="mb-10">
-        <h3 className="text-2xl font-bold font-sans mb-3 flex items-center gap-3">
+        <h3 className="text-2xl font-bold font-display mb-3 flex items-center gap-3">
           <Briefcase className="w-6 h-6 text-accent" />
           Experience
         </h3>
@@ -25,9 +25,10 @@ export default function Experience() {
         {experience.map((exp, i) => (
           <motion.div 
             key={exp.id}
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.2 }}
             className="relative pl-8 border-l border-border"
           >
             <div className="absolute w-3 h-3 bg-background border-2 border-accent rounded-full -left-[6.5px] top-1.5"></div>
@@ -49,7 +50,7 @@ export default function Experience() {
 
             <div className="flex flex-wrap gap-2">
               {exp.tech.map(t => (
-                <span key={t} className="px-2 py-1 bg-surface border border-border rounded text-xs font-mono text-muted">
+                <span key={t} className="px-2 py-1 bg-surface border border-border rounded text-[11px] font-mono text-muted">
                   {t}
                 </span>
               ))}
@@ -73,7 +74,7 @@ export default function Experience() {
 
       {/* Education Section */}
       <div className="mt-24 mb-10">
-        <h3 className="text-2xl font-bold font-sans mb-3 flex items-center gap-3">
+        <h3 className="text-2xl font-bold font-display mb-3 flex items-center gap-3">
           <GraduationCap className="w-6 h-6 text-accent" />
           Education
         </h3>
@@ -83,10 +84,11 @@ export default function Experience() {
         {education.map((edu) => (
           <motion.div 
             key={edu.id}
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="p-6 rounded-xl border border-border glass-card"
+            transition={{ duration: 0.2 }}
+            className="p-6 rounded-xl border border-border bg-surface"
           >
             <h4 className="text-lg font-bold text-foreground mb-1">{edu.degree}</h4>
             <p className="text-muted font-mono text-sm mb-3">{edu.school}</p>
@@ -98,7 +100,7 @@ export default function Experience() {
       </div>
 
       <div className="mt-24 mb-10">
-        <h3 className="text-2xl font-bold font-sans mb-3 flex items-center gap-3">
+        <h3 className="text-2xl font-bold font-display mb-3 flex items-center gap-3">
           <BookOpen className="w-6 h-6 text-accent" />
           Selected Publications
         </h3>
@@ -111,12 +113,13 @@ export default function Experience() {
         {publications.map((pub, i) => (
           <motion.div 
             key={pub.id}
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.2 }}
             className="group"
           >
-            <a href={pub.link === "#" ? undefined : pub.link} target={pub.link === "#" ? undefined : "_blank"} rel={pub.link === "#" ? undefined : "noopener noreferrer"} className="block p-5 rounded-lg border border-transparent hover:border-border hover:bg-surface/30 transition-all duration-300">
+            <a href={pub.link === "#" ? undefined : pub.link} target={pub.link === "#" ? undefined : "_blank"} rel={pub.link === "#" ? undefined : "noopener noreferrer"} className="block p-5 border-l-2 border-accent/60 hover:bg-surface/50 transition-colors duration-200">
               <div className="flex justify-between items-start gap-4">
                 <div>
                   <h4 className="text-lg font-bold text-foreground group-hover:text-accent transition-colors leading-snug">

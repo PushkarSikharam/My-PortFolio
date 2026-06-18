@@ -1,59 +1,47 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="min-h-[90vh] flex flex-col justify-center relative pt-20">
+    <section className="min-h-[88vh] flex flex-col justify-center relative pt-24 pb-16">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="max-w-3xl"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.4 }}
+        className="max-w-4xl"
       >
-        <h1 className="text-5xl md:text-7xl font-sans font-bold tracking-tight mb-4">
+        <h1 className="text-6xl md:text-8xl font-display font-bold leading-none mb-6">
           Sai Pushkar Sikharam
         </h1>
-        <h2 className="text-xl md:text-3xl text-muted font-mono mb-6">
-          AI/ML & Data Engineer
-        </h2>
-
-        <div className="flex flex-wrap gap-3 mb-6 text-sm font-mono">
-          <span className="px-3 py-1 rounded-full border border-accent/30 bg-accent/5 text-accent">
-            Open to AI/ML, Data Engineering, and Backend roles
-          </span>
-          <span className="px-3 py-1 rounded-full border border-border bg-surface text-muted">
-            Python | LLM Apps | Data Pipelines | FastAPI
-          </span>
-        </div>
-
-        <div className="flex items-center gap-6 mb-8">
-          <a href="https://github.com/PushkarSikharam" target="_blank" rel="noopener noreferrer" className="text-muted hover:text-foreground transition-colors hover:scale-110 transform duration-200">
-            <Github className="w-7 h-7" />
-          </a>
-          <a href="https://linkedin.com/in/sai-pushkar-sikharam-167666234" target="_blank" rel="noopener noreferrer" className="text-muted hover:text-accent transition-colors hover:scale-110 transform duration-200">
-            <Linkedin className="w-7 h-7" />
-          </a>
-          <a href="mailto:s.sai.pushkar@gmail.com" className="text-muted hover:text-accent transition-colors hover:scale-110 transform duration-200">
-            <Mail className="w-7 h-7" />
-          </a>
-        </div>
-
-        <p className="text-lg md:text-xl text-foreground/80 leading-relaxed mb-10 max-w-2xl">
-          Building LLM applications, data pipelines, and scalable backend systems with Python-first engineering.
-          I turn machine learning ideas into production-ready products through robust APIs, retrieval workflows, and reliable data infrastructure.
+        <p className="text-lg md:text-2xl text-muted font-mono mb-8 max-w-3xl">
+          I build LLM systems and benchmark their failure modes.
         </p>
 
-        <div className="flex flex-wrap gap-4">
-          <a href="#projects" className="px-6 py-3 bg-foreground text-background font-medium rounded-md hover:bg-foreground/90 transition-colors">
-            View Projects
+        <p className="text-base md:text-lg text-foreground/75 leading-relaxed mb-10 max-w-2xl">
+          I work across AI applications, data pipelines, backend APIs, and security evaluation, with research grounded in real CVEs and production-shaped systems.
+        </p>
+
+        <div className="flex flex-wrap items-center gap-4 mb-10">
+          <a href="#projects" className="inline-flex items-center gap-2 px-5 py-3 bg-accent text-background font-medium rounded-md hover:bg-foreground transition-colors">
+            View Work <ArrowDown className="w-4 h-4" />
           </a>
-          <a href="mailto:s.sai.pushkar@gmail.com" className="px-6 py-3 bg-accent text-background font-medium rounded-md hover:bg-accent/90 transition-colors">
-            Contact Me
+          <Link href="/research" className="inline-flex items-center gap-2 px-5 py-3 border border-border bg-surface text-foreground font-medium rounded-md hover:border-accent hover:text-accent transition-colors">
+            Read Research
+          </Link>
+        </div>
+
+        <div className="flex items-center gap-3">
+          <a href="https://github.com/PushkarSikharam" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="p-3 rounded-full border border-border bg-surface text-muted hover:text-accent hover:border-accent transition-colors">
+            <Github className="w-5 h-5" />
           </a>
-          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-surface border border-border font-medium rounded-md hover:border-accent/50 transition-colors">
-            Download Resume
+          <a href="https://linkedin.com/in/sai-pushkar-sikharam-167666234" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="p-3 rounded-full border border-border bg-surface text-muted hover:text-accent hover:border-accent transition-colors">
+            <Linkedin className="w-5 h-5" />
+          </a>
+          <a href="mailto:s.sai.pushkar@gmail.com" aria-label="Email" className="p-3 rounded-full border border-border bg-surface text-muted hover:text-accent hover:border-accent transition-colors">
+            <Mail className="w-5 h-5" />
           </a>
         </div>
       </motion.div>

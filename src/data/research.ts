@@ -18,15 +18,15 @@ export const benchmarkStats = [
 export const modelComparison = [
   {
     model: "Gemini 2.5 Flash",
-    color: "#4285F4",
+    color: "#c9a55a",
     detectionRate: 69.2,
     falsePositiveRate: 66.7,
     patchBlindness: 56.5,
     precision: 59.5,
   },
   {
-    model: "Claude 3.5 Sonnet",
-    color: "#D97706",
+    model: "Claude 4.6 Sonnet",
+    color: "#f59e0b",
     detectionRate: 56.2,
     falsePositiveRate: 50.0,
     patchBlindness: 42.9,
@@ -34,7 +34,7 @@ export const modelComparison = [
   },
   {
     model: "GPT-4o",
-    color: "#10B981",
+    color: "#4ade80",
     detectionRate: 50.0,
     falsePositiveRate: 33.3,
     patchBlindness: 32.1,
@@ -47,13 +47,13 @@ export const keyFindings = [
     icon: "target",
     headline: "Recall vs. Precision Tradeoff",
     detail:
-      "Gemini leads detection at 69.2% recall, but fires false alarms on 66.7% of safe code. GPT-4o is most conservative — fewest false alarms but misses over two-thirds of real vulnerabilities.",
+      "Gemini leads detection at 69.2% recall, but fires false alarms on 66.7% of safe code. GPT-4o is most conservative: fewest false alarms but misses over two-thirds of real vulnerabilities.",
   },
   {
     icon: "eye-off",
     headline: "Severe Patch Blindness",
     detail:
-      "All models fail to recognize that vulnerabilities have been fixed. Even the best performer (GPT-4o) still flags 32.1% of patched code as vulnerable — a fundamental reasoning failure.",
+      "All models fail to recognize that vulnerabilities have been fixed. Even the best performer (GPT-4o) still flags 32.1% of patched code as vulnerable: a fundamental reasoning failure.",
   },
   {
     icon: "shield-alert",

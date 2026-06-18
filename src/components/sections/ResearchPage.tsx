@@ -58,6 +58,12 @@ const findingIcons: Record<string, React.ReactNode> = {
   "shield-alert": <ShieldAlert className="w-5 h-5" />,
 };
 
+const phaseColors: Record<string, string> = {
+  A: "var(--warning)",
+  B: "var(--danger)",
+  C: "var(--safe)",
+};
+
 /* ─── Mini bar (percentage) ───────────────────────── */
 function MetricBar({
   value,
@@ -110,7 +116,8 @@ function PhaseCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay }}
-      className="glass-card p-6"
+      className="card-base p-6 border-l-2"
+      style={{ borderLeftColor: phaseColors[phase] ?? "var(--accent)" }}
     >
       <div className="flex items-center gap-3 mb-3">
         <span className="px-2.5 py-1 bg-accent/10 border border-accent/30 rounded text-accent font-mono font-bold text-sm">
@@ -159,7 +166,7 @@ export default function ResearchPage() {
           </span>
         </div>
 
-        <h1 className="text-3xl md:text-5xl font-bold font-sans tracking-tight mb-3 leading-tight">
+        <h1 className="text-3xl md:text-5xl font-bold font-display tracking-tight mb-3 leading-tight">
           {researchPaper.title}
         </h1>
         <p className="text-lg md:text-xl text-muted font-mono mb-6">
@@ -197,9 +204,9 @@ export default function ResearchPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
-            className="glass-card p-6 text-center group"
+            className="card-base p-6 text-center group"
           >
-            <div className="text-3xl md:text-4xl font-bold font-sans text-foreground mb-1">
+            <div className="text-3xl md:text-4xl font-bold font-display text-foreground mb-1">
               <AnimatedNumber target={stat.value} />
             </div>
             <div className="text-xs font-mono text-muted uppercase tracking-wider">
@@ -218,7 +225,7 @@ export default function ResearchPage() {
       >
         <div className="flex items-center gap-3 mb-6">
           <GitBranch className="w-6 h-6 text-accent" />
-          <h2 className="text-2xl font-bold font-sans">
+          <h2 className="text-2xl font-bold font-display">
             Tri-State Temporal Framework
           </h2>
         </div>
@@ -232,8 +239,8 @@ export default function ResearchPage() {
           <PhaseCard
             phase="A"
             label="Pre-Fix"
-            description="Parent of the buggy commit — stratified as Present (60%), Absent (33.3%), or Uncertain (6.7%) via manual audit."
-            scoring="Present → TP, Absent → FP, Uncertain → excluded"
+            description="Parent of the buggy commit, stratified as Present (60%), Absent (33.3%), or Uncertain (6.7%) via manual audit."
+            scoring="Present -> TP, Absent -> FP, Uncertain -> excluded"
             delay={0}
           />
           <PhaseCard
@@ -262,7 +269,7 @@ export default function ResearchPage() {
       >
         <div className="flex items-center gap-3 mb-6">
           <BarChart3 className="w-6 h-6 text-accent" />
-          <h2 className="text-2xl font-bold font-sans">
+          <h2 className="text-2xl font-bold font-display">
             Model Performance Comparison
           </h2>
         </div>
@@ -271,7 +278,7 @@ export default function ResearchPage() {
           rate, false positive rate, patch blindness, and overall precision.
         </p>
 
-        <div className="glass-card p-6 md:p-8">
+        <div className="card-base p-6 md:p-8">
           <div className="space-y-10">
             {modelComparison.map((m, idx) => (
               <div key={m.model}>
@@ -302,7 +309,7 @@ export default function ResearchPage() {
                     </span>
                     <MetricBar
                       value={m.falsePositiveRate}
-                      color="#ef4444"
+                      color="#e05252"
                       delay={idx * 0.15 + 0.08}
                     />
                   </div>
@@ -344,7 +351,7 @@ export default function ResearchPage() {
           Full Metrics Table
         </h3>
 
-        <div className="glass-card overflow-x-auto">
+        <div className="card-base overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-border">
@@ -442,7 +449,7 @@ export default function ResearchPage() {
         viewport={{ once: true }}
         className="mb-20"
       >
-        <h2 className="text-2xl font-bold font-sans mb-8">Key Findings</h2>
+        <h2 className="text-2xl font-bold font-display mb-8">Key Findings</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {keyFindings.map((finding, i) => (
@@ -452,11 +459,11 @@ export default function ResearchPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.12 }}
-              className="glass-card p-6"
+              className="card-base p-6"
             >
               <div className="flex items-center gap-2 mb-3 text-accent">
                 {findingIcons[finding.icon]}
-                <h5 className="text-sm font-bold font-sans uppercase tracking-wide">
+                <h5 className="text-sm font-bold font-display uppercase tracking-wide">
                   {finding.headline}
                 </h5>
               </div>
@@ -477,7 +484,7 @@ export default function ResearchPage() {
       >
         <div className="flex items-center gap-3 mb-6">
           <Layers className="w-6 h-6 text-accent" />
-          <h2 className="text-2xl font-bold font-sans">
+          <h2 className="text-2xl font-bold font-display">
             Context-Delivery Modes
           </h2>
         </div>
@@ -551,11 +558,11 @@ export default function ResearchPage() {
         viewport={{ once: true }}
         className="mb-20"
       >
-        <h2 className="text-2xl font-bold font-sans mb-6">
+        <h2 className="text-2xl font-bold font-display mb-6">
           Dataset Composition
         </h2>
 
-        <div className="glass-card p-6 md:p-8">
+        <div className="card-base p-6 md:p-8">
           <h4 className="text-sm font-mono text-muted uppercase tracking-wider mb-5">
             Vulnerability Families
           </h4>
@@ -566,7 +573,7 @@ export default function ResearchPage() {
                 key={v.family}
                 className="p-4 bg-background border border-border rounded-lg text-center"
               >
-                <div className="text-2xl font-bold font-sans text-foreground mb-0.5">
+                <div className="text-2xl font-bold font-display text-foreground mb-0.5">
                   {v.count}
                 </div>
                 <div className="text-xs font-mono text-muted">{v.family}</div>
@@ -581,7 +588,7 @@ export default function ResearchPage() {
             <FileText className="w-3.5 h-3.5" />
             <span>
               30 validated security issues across 13 open-source LPA
-              repositories · Severity: 26 High, 1 Medium, 3 Low
+              repositories | Severity: 26 High, 1 Medium, 3 Low
             </span>
           </div>
         </div>
@@ -594,11 +601,11 @@ export default function ResearchPage() {
         viewport={{ once: true }}
         className="mb-20"
       >
-        <h2 className="text-2xl font-bold font-sans mb-6">
+        <h2 className="text-2xl font-bold font-display mb-6">
           System Architecture
         </h2>
 
-        <div className="glass-card p-6 md:p-8">
+        <div className="card-base p-6 md:p-8">
           <div className="space-y-6">
             {[
               {
@@ -606,21 +613,21 @@ export default function ResearchPage() {
                 title: "Ground Truth Crawler",
                 desc: "Mines GitHub repositories to build a human-validated ground-truth dataset of real-world CVEs in LLM-Powered Applications.",
                 components:
-                  "Input processing → GitHub API mining → Regex/CWE analysis → Version resolution → Master report generation",
+                  "Input processing -> GitHub API mining -> Regex/CWE analysis -> Version resolution -> Master report generation",
               },
               {
                 stage: "Stage 2",
                 title: "Multi-Model LLM Evaluation",
                 desc: "Benchmarks frontier LLMs on detecting, classifying, and localizing vulnerabilities under the Tri-State Temporal Framework.",
                 components:
-                  "Data ingestion → Snapshot resolution → Context-delivery transform → Model runners (Gemini, Claude, GPT-4o) → Tri-State scoring → Model-aware reporting",
+                  "Data ingestion -> Snapshot resolution -> Context-delivery transform -> Model runners (Gemini, Claude, GPT-4o) -> Tri-State scoring -> Model-aware reporting",
               },
               {
                 stage: "Stage 3",
                 title: "Stratified Audit & Rescoring",
                 desc: "Re-scores the entire benchmark from saved JSON backups under stratified temporal labels without re-querying APIs.",
                 components:
-                  "Phase A audit → Manifest freeze → Rescoring engine → Cross-model analysis → Statistical significance → Publication figures",
+                  "Phase A audit -> Manifest freeze -> Rescoring engine -> Cross-model analysis -> Statistical significance -> Publication figures",
               },
             ].map((s, i) => (
               <motion.div
