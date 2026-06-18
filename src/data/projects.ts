@@ -2,14 +2,14 @@ export const projects = [
   {
     id: "kinetica",
     title: "Kinetic",
-    summary: "An ML-backed nutrition platform that combines a deterministic adaptive metabolic engine with AI-assisted food logging, contextual nutrition chat, and full-stack product workflows.",
+    summary: "A nutrition platform built around a simple constraint: the AI can make logging easier, but the calorie math has to stay inspectable.",
     tags: ["Next.js 15", "FastAPI", "Python", "Gemini", "SQLite"],
     problem: "Most calorie trackers rely on static formulas and manual logging, which makes recommendations generic, noisy, and poorly adapted to real metabolic behavior over time.",
     architecture: "Three-layer product system: Application layer (authentication, onboarding, dashboard, analytics, feedback, admin review) -> Intelligence layer (adaptive metabolic engine, weight-trend modeling, contextual AI assistance) -> Persistence layer (users, foods, meals, weights, insights, feedback)",
     decisions: [
-      "Separated the deterministic recommendation engine from the AI layer so adaptive calorie guidance stays explainable and mathematically grounded.",
-      "Built the intelligence layer around EWMA smoothing, OLS-based weight velocity estimation, and confidence-gated calorie adjustments instead of relying on static TDEE formulas.",
-      "Designed the product as a real authenticated multi-user workflow with onboarding, meal logging, analytics, feedback handling, and admin review rather than a prototype-style single-user app."
+      "The core recommendation path is deterministic on purpose; AI helps with food logging and user experience, but it does not get to silently rewrite the metabolic engine.",
+      "Weight changes are smoothed with EWMA and trend-estimated with OLS, which made the system less jumpy than a static TDEE calculator after noisy weigh-ins.",
+      "I treated it like a product instead of a demo: onboarding, authentication, meal history, analytics, feedback handling, and an admin review loop all sit in the same workflow."
     ],
     metrics: [
       { label: "System Layers", value: "3" },
@@ -22,15 +22,15 @@ export const projects = [
   {
     id: "github-cve",
     title: "LLM Vulnerability Detection Benchmark",
-    summary: "An empirical benchmark of 810 assessments evaluating whether frontier LLMs (Gemini, Claude, GPT-4o) can detect real-world CVEs in LLM-Powered Applications under a Tri-State Temporal Framework.",
+    summary: "A research benchmark asking a deliberately uncomfortable question: can frontier LLMs tell vulnerable code from patched code when both come from real repositories?",
     tags: ["Python", "LLMs", "Cybersecurity", "Benchmarking", "GitHub API"],
     problem: "No rigorous benchmark existed to measure whether frontier LLMs can reliably distinguish vulnerable code from patched code in real-world LLM-powered applications across temporal states.",
     architecture: "Stage 1: GitHub CVE Crawler (API mining -> regex/CWE analysis -> version resolution) -> Stage 2: Multi-Model LLM Evaluation (snapshot resolver -> context-delivery modes -> tri-state scoring) -> Stage 3: Stratified Audit & Rescoring Engine (Phase A audit -> manifest freeze -> reproducible re-scoring)",
     decisions: [
-      "Invented a Tri-State Temporal Framework (Pre-Fix / Vulnerable / Patched) with stratified Phase A auditing to measure model behavior across the full vulnerability lifecycle.",
-      "Implemented 4 context-delivery modes (ARA, DCA-File, DCA-Region, DCA-Function) to isolate whether model accuracy depends on how much code context is provided.",
-      "Built a rescoring engine that regenerates all metrics from saved JSON backups without re-querying APIs, ensuring full reproducibility of reported results.",
-      "Designed rate-limit-aware multi-key API orchestration to reliably benchmark across 3 proprietary model APIs at scale."
+      "The benchmark uses Pre-Fix, Vulnerable, and Patched states because a detector that only works on obviously vulnerable code is not useful in a real maintenance timeline.",
+      "I tested four context modes rather than one prompt style, so failures could be tied to context delivery instead of hand-waved as model weakness.",
+      "Every reported metric can be regenerated from saved JSON backups, which mattered once API cost, rate limits, and reproducibility started pulling against each other.",
+      "The strongest result was also the most revealing one: patched code stayed hard for the models, exposing a 56.5% patch-blindness failure mode."
     ],
     metrics: [
       { label: "Total Assessments", value: "810" },
@@ -43,14 +43,14 @@ export const projects = [
   {
     id: "talk2campus",
     title: "Talk2Campus",
-    summary: "An API-driven RAG architecture for conversational access to distributed campus information.",
+    summary: "A campus RAG assistant for TAMU-CC that let students query scattered university information through text or voice.",
     tags: ["FastAPI", "React", "RAG", "LLM", "Vector DB"],
     problem: "Students lacked a centralized, conversational way to query complex, distributed campus databases efficiently.",
     architecture: "React UI -> FastAPI backend -> retrieval pipeline -> vector database -> LLM response orchestration",
     decisions: [
-      "Separated frontend and backend responsibilities to isolate retrieval and generation workflows from the UI.",
-      "Implemented asynchronous FastAPI handlers to keep LLM-backed requests responsive under load.",
-      "Used structured retrieval before generation, along with OpenAI APIs and WhisperX-based voice support, to improve response relevance and usability."
+      "Kept retrieval and response generation behind the API so the UI stayed thin and the knowledge workflow could evolve independently.",
+      "The useful scope was narrow by design: one TAMU-CC campus corpus, roughly 10 endpoints, and testing with about 10 users instead of pretending it was a universal university assistant.",
+      "Voice support used WhisperX because the project was meant to feel like a campus help desk, not just another chatbot box."
     ],
     metrics: [
       { label: "Campus Scope", value: "TAMU-CC" },
@@ -63,14 +63,14 @@ export const projects = [
   {
     id: "crypto-fusion",
     title: "Crypto Fusion & Forecasting",
-    summary: "A multimodal financial analysis system combining market data, sentiment signals, and forecasting pipelines.",
+    summary: "A forecasting system that combined market movement with sentiment signals instead of treating price history as the whole story.",
     tags: ["Machine Learning", "Python", "Data Processing", "Time-Series"],
     problem: "Single-modality forecasting failed to capture edge cases driven by news sentiment and external market shocks.",
     architecture: "Market data + news sentiment -> preprocessing pipelines -> multimodal model stack -> forecast and portfolio signals",
     decisions: [
-      "Integrated multimodal data sources to build a more resilient feature space than price-only forecasting.",
-      "Engineered automated preprocessing to handle missing values and heterogeneous financial inputs at scale.",
-      "Optimized directional accuracy through iterative tuning across model and feature configurations."
+      "Price-only forecasting missed sentiment shocks, so the feature pipeline fused market data with external text-derived signals.",
+      "Most of the engineering work sat in the unglamorous middle: cleaning heterogeneous inputs, aligning timestamps, and keeping the model fed with comparable features.",
+      "The final comparison tracked directional accuracy, RMSE, Sharpe ratio, and monitored assets rather than leaning on one friendly metric."
     ],
     metrics: [
       { label: "Directional Accuracy Improvement", value: "8.7 pp" },
@@ -83,14 +83,14 @@ export const projects = [
   {
     id: "rainfall-prediction",
     title: "Hybrid Rainfall Prediction Model",
-    summary: "A lightweight time-series forecasting system combining Prophet and XGBoost to predict localized rainfall.",
+    summary: "A local rainfall forecaster for Corpus Christi that used Prophet for seasonality and XGBoost for what the baseline kept missing.",
     tags: ["Time-Series", "XGBoost", "Prophet", "Python"],
     problem: "Forecasting daily rainfall accurately typically requires massive climate simulators, posing challenges for lightweight, resource-constrained environments.",
     architecture: "Meteostat API -> feature engineering -> Prophet seasonality baseline -> XGBoost residual modeling -> hybrid forecast",
     decisions: [
-      "Integrated Prophet to capture long-term seasonal baselines and climate trends.",
-      "Trained XGBoost on Prophet residuals to model short-term nonlinear atmospheric behavior.",
-      "Engineered lag and rolling-window features to improve signal extraction from weather history."
+      "Prophet handled the broad seasonal curve; XGBoost was trained on the residuals where the simple baseline still left signal behind.",
+      "Lag and rolling-window features made the model more useful for local weather history than a plain daily series.",
+      "The practical win was lowering MAE from 3.16 mm to 2.18 mm with a lightweight pipeline."
     ],
     metrics: [
       { label: "Baseline MAE", value: "3.16 mm" },
@@ -103,13 +103,13 @@ export const projects = [
   {
     id: "helmet-detection",
     title: "Helmet & Number Plate Recognition",
-    summary: "A real-time computer vision inference pipeline for traffic safety.",
+    summary: "A traffic-safety computer vision pipeline for detecting upper-body rider regions and license plates in video frames.",
     tags: ["Computer Vision", "YOLO", "Real-time Inference", "Python"],
     problem: "Manual traffic monitoring could not scale, and existing models struggled with real-time inference latency.",
     architecture: "Video pipeline -> YOLO detection layer -> extraction -> logging",
     decisions: [
-      "Leveraged YOLO architectures specifically tuned for high-speed object recognition.",
-      "Optimized inference hardware utilization through batching and memory management."
+      "Used two pretrained Haar cascades as the detection backbone: upper-body detection for rider localization and Russian plate detection for license-plate extraction.",
+      "Kept the pipeline focused on frame-by-frame inference and logging, which made it easier to reason about failures than a larger end-to-end traffic system."
     ],
     metrics: [
       { label: "Pretrained Cascades", value: "2" },

@@ -5,27 +5,41 @@ import { projects } from "@/data/projects";
 import { ArrowUpRight } from "lucide-react";
 
 function metricSentence(project: (typeof projects)[number]) {
-  if (project.id === "github-cve") {
-    return "810 assessments across 30 validated CVEs, 13 LPA repositories, and 3 frontier models.";
+  if (project.id === "kinetica") {
+    return "20+ backend routes around an adaptive engine that keeps the calorie math explainable.";
   }
 
-  if (project.id === "kinetica") {
-    return "Three system layers, 20+ backend routes, and an EWMA + OLS adaptive engine.";
+  if (project.id === "talk2campus") {
+    return "Scoped to the TAMU-CC corpus, with roughly 10 API endpoints and testing from about 10 users.";
   }
 
   return project.metrics.map((metric) => `${metric.value} ${metric.label.toLowerCase()}`).join(", ");
 }
 
+function projectProofLine(project: (typeof projects)[number]) {
+  switch (project.id) {
+    case "talk2campus":
+      return "Scoped to the TAMU-CC corpus, tested with about 10 users, and built with voice support through WhisperX.";
+    case "helmet-detection":
+      return "Uses two pretrained Haar cascades for rider-region and number-plate detection, with IEEE 2023 publication linkage.";
+    default:
+      return null;
+  }
+}
+
 export default function Projects() {
-  const featured = projects.slice(0, 2);
-  const remaining = projects.slice(2);
+  const visibleProjects = projects.filter(
+    (project) => !["github-cve", "crypto-fusion", "rainfall-prediction"].includes(project.id)
+  );
+  const featured = visibleProjects.slice(0, 2);
+  const remaining = visibleProjects.slice(2);
 
   return (
     <section id="projects" className="py-24 border-t border-border/50">
       <div className="mb-14">
         <h2 className="text-4xl font-bold font-display mb-4">Selected Work</h2>
         <p className="text-muted text-lg max-w-2xl">
-          Product builds and research systems, separated by the amount of evidence they need on the page.
+          Product builds and applied systems, with research work kept in the research sections.
         </p>
       </div>
 
@@ -59,13 +73,24 @@ export default function Projects() {
                   <p className="text-sm text-foreground/75 leading-relaxed">{project.architecture}</p>
                 </div>
 
-                <div className="space-y-3 mb-6">
-                  {project.decisions.slice(0, 3).map((decision) => (
-                    <p key={decision} className="text-sm text-foreground/72 leading-relaxed">
-                      {decision}
-                    </p>
-                  ))}
-                </div>
+                {project.id === "kinetica" ? (
+                  <div className="space-y-4 mb-6 text-sm text-foreground/72 leading-relaxed">
+                    <p>{project.decisions[0]}</p>
+                    <p>{project.decisions[1]}</p>
+                    <p className="border-l border-border pl-4 text-muted">{project.decisions[2]}</p>
+                  </div>
+                ) : (
+                  <div className="mb-6">
+                    <p className="text-sm text-foreground/72 leading-relaxed mb-4">{project.decisions[0]}</p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      {project.decisions.slice(1, 3).map((decision) => (
+                        <p key={decision} className="text-xs text-muted leading-relaxed border border-border rounded-md p-3 bg-background/50">
+                          {decision}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                )}
 
                 {project.githubUrl.startsWith("http") && (
                   <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-foreground transition-colors">
@@ -90,6 +115,9 @@ export default function Projects() {
           >
             <h3 className="text-2xl font-display font-bold mb-3">{project.title}</h3>
             <p className="text-sm text-foreground/72 leading-relaxed mb-5">{project.summary}</p>
+            {projectProofLine(project) && (
+              <p className="text-xs font-mono text-accent leading-relaxed mb-5">{projectProofLine(project)}</p>
+            )}
             <div className="flex flex-wrap gap-2 mb-5">
               {project.tags.slice(0, 4).map((tag) => (
                 <span key={tag} className="px-2.5 py-1 bg-background border border-border rounded text-xs font-mono text-muted">

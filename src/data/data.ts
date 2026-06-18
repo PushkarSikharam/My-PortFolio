@@ -6,10 +6,10 @@ export const experience = [
     duration: "2025 - Present",
     link: "https://github.com/PushkarSikharam/Vulnerability-Detection-on-CodeBase",
     bullets: [
-      "Led an empirical study benchmarking 3 frontier LLMs (Gemini 2.5 Flash, Claude 3.5 Sonnet, GPT-4o) across 810 total assessments on their ability to detect real-world CVEs in LLM-Powered Applications — submitted to ACSAC 2026.",
+      "Led an empirical study benchmarking 3 frontier LLMs (Gemini 2.5 Flash, Claude 3.5 Sonnet, GPT-4o) across 810 total assessments on their ability to detect real-world CVEs in LLM-Powered Applications - submitted to ACSAC 2026.",
       "Designed and implemented a Tri-State Temporal Framework with stratified Phase A auditing, evaluating model behavior across pre-fix, vulnerable, and patched code states with multiple context-delivery modes.",
       "Built a full-stack CVE mining and benchmarking pipeline: GitHub API data collection, regex/CWE analysis, version resolution, multi-model evaluation runners, and an automated rescoring engine for reproducible results.",
-      "Discovered severe patch blindness across all models — up to 56.5% of patched (safe) code flagged as vulnerable — establishing that no current LLM is reliable as a standalone security auditor.",
+      "Discovered severe patch blindness across all models - up to 56.5% of patched (safe) code flagged as vulnerable - establishing that no current LLM is reliable as a standalone security auditor.",
       "Contributed to Crypto Fusion, a multimodal AI framework combining Temporal Graph Neural Networks, Transformers, and Reinforcement Learning for financial forecasting and portfolio optimization.",
       "Engineered multimodal data pipelines across market, Reddit, and news sources for 200+ assets, and developed FinBERT/LLM-driven sentiment and correlation features for downstream modeling.",
       "Improved forecasting quality with an 8.3% RMSE reduction, +8.7 percentage points directional accuracy, and +0.29 Sharpe ratio improvement at 10 bps transaction costs versus baseline models.",
@@ -35,7 +35,7 @@ export const experience = [
 export const capabilities = [
   {
     title: "LLM Applications",
-    summary: "Designing AI features that connect retrieval, prompting, and backend logic into usable products — and benchmarking their reliability on real-world security tasks.",
+    summary: "Designing AI features that connect retrieval, prompting, and backend logic into usable products - and benchmarking their reliability on real-world security tasks.",
     items: ["RAG Pipelines", "LLM Integration", "Multi-Model Evaluation", "Security Benchmarking"],
     tech: "Gemini, Claude, GPT-4o, LangChain, HuggingFace"
   },
@@ -94,12 +94,16 @@ export const education = [
     id: "edu-1",
     degree: "Master of Science in Computer Science",
     school: "Texas A&M University - Corpus Christi",
-    year: "Aug 2024 - May 2026"
+    year: "Aug 2024 - May 2026",
+    logo: "/education/TAMU-CC.png",
+    abbr: "TAMU-CC"
   },
   {
     id: "edu-2",
-    degree: "Bachelor of Technology in Computer Science",
+    degree: "Bachelor of Engineering in Computer Science",
     school: "Sri Chandrasekharendra Saraswathi Vishwa Maha Vidyalaya University",
-    year: "2020-2024"
+    year: "2020-2024",
+    logo: "/education/SCSVMV.png",
+    abbr: "SCSVMV"
   }
 ];

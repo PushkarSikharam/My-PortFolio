@@ -162,7 +162,7 @@ export default function ResearchPage() {
         <div className="flex items-center gap-3 mb-6">
           <FlaskConical className="w-8 h-8 text-accent" />
           <span className="text-sm font-mono text-muted uppercase tracking-wider">
-            Research Paper
+            Research Findings
           </span>
         </div>
 
@@ -173,7 +173,11 @@ export default function ResearchPage() {
           {researchPaper.subtitle}
         </p>
 
-        <div className="flex flex-wrap items-center gap-3 mb-8">
+        <p className="text-foreground/70 leading-relaxed max-w-3xl text-base md:text-lg mb-10">
+          {researchPaper.abstract}
+        </p>
+
+        <div className="flex flex-wrap items-center gap-3">
           <span className="px-4 py-1.5 rounded-full border border-accent/40 bg-accent/10 text-accent text-sm font-mono font-medium">
             {researchPaper.venue}
           </span>
@@ -189,10 +193,6 @@ export default function ResearchPage() {
             View Repository <ArrowUpRight className="w-4 h-4" />
           </a>
         </div>
-
-        <p className="text-foreground/70 leading-relaxed max-w-3xl text-base md:text-lg">
-          {researchPaper.abstract}
-        </p>
       </motion.div>
 
       {/* ── Benchmark Stats ── */}
@@ -655,7 +655,7 @@ export default function ResearchPage() {
         </div>
       </motion.div>
 
-      {/* ── Footer CTA ── */}
+      {/* Footer CTA */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

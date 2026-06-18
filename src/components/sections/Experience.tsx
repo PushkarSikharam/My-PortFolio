@@ -88,13 +88,28 @@ export default function Experience() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.2 }}
-            className="p-6 rounded-xl border border-border bg-surface"
+            className="p-6 rounded-xl border border-border bg-surface flex gap-4 items-start"
           >
-            <h4 className="text-lg font-bold text-foreground mb-1">{edu.degree}</h4>
-            <p className="text-muted font-mono text-sm mb-3">{edu.school}</p>
-            <span className="inline-block px-3 py-1 bg-background border border-border rounded-full text-xs font-mono text-accent">
-              {edu.year}
-            </span>
+            <div className="relative w-14 h-14 rounded-xl border border-border bg-background shrink-0 overflow-hidden grid place-items-center">
+              <span className="text-[10px] font-mono text-accent text-center leading-tight px-1">
+                {edu.abbr}
+              </span>
+              <img
+                src={edu.logo}
+                alt={`${edu.school} logo`}
+                className="absolute inset-0 w-full h-full object-contain p-2 bg-background"
+                onError={(event) => {
+                  event.currentTarget.style.display = "none";
+                }}
+              />
+            </div>
+            <div>
+              <h4 className="text-lg font-bold text-foreground mb-1">{edu.degree}</h4>
+              <p className="text-muted font-mono text-sm mb-3">{edu.school}</p>
+              <span className="inline-block px-3 py-1 bg-background border border-border rounded-full text-xs font-mono text-accent">
+                {edu.year}
+              </span>
+            </div>
           </motion.div>
         ))}
       </div>

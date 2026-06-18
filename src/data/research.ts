@@ -69,3 +69,50 @@ export const vulnerabilityFamilies = [
   { family: "SSRF / RCE", count: 2, percent: 6.7 },
   { family: "General Security", count: 10, percent: 33.3 },
 ];
+
+export const relatedResearch = [
+  {
+    slug: "crypto-fusion",
+    title: "Crypto Fusion & Forecasting",
+    venue: "ICCSMM 2025",
+    status: "Published",
+    summary:
+      "A multimodal financial forecasting study combining market data, news and social sentiment, temporal modeling, and portfolio evaluation.",
+    proof:
+      "Reported an 8.3% RMSE reduction, +8.7 percentage-point directional accuracy improvement, and +0.29 Sharpe-ratio lift across 200+ monitored assets.",
+    terminalLines: [
+      "> rmse_reduction: 8.3%",
+      "> directional_accuracy: +8.7pp",
+      "> sharpe_lift: +0.29",
+      "> monitored_assets: 200+",
+    ],
+    findings: [
+      "Multimodal signals improved forecasting quality beyond price-only baselines.",
+      "Sentiment and market features were evaluated against portfolio-level outcomes, not only prediction error.",
+      "The strongest practical result was the combined RMSE reduction and Sharpe-ratio lift across a broad monitored asset set.",
+    ],
+    link: "https://github.com/abhishekjoshi007/CryptoFusion",
+  },
+  {
+    slug: "rainfall-prediction",
+    title: "Hybrid Rainfall Prediction Model",
+    venue: "Independent Research",
+    status: "Developed",
+    summary:
+      "A Corpus Christi rainfall forecasting model combining Prophet seasonality with XGBoost residual modeling for lightweight local weather prediction.",
+    proof:
+      "Reduced MAE from 3.16 mm to 2.18 mm using lag features, rolling weather windows, Prophet baselines, and XGBoost residual learning.",
+    terminalLines: [
+      "> baseline_mae: 3.16mm",
+      "> best_mae: 2.18mm",
+      "> final_rmse: 6.25mm",
+      "> final_r2: 0.29",
+    ],
+    findings: [
+      "Prophet captured the seasonal rainfall baseline while XGBoost modeled nonlinear residual behavior.",
+      "Lag and rolling-window features made the model more useful for local Corpus Christi weather history.",
+      "The hybrid approach reduced MAE while staying lightweight enough for a practical forecasting workflow.",
+    ],
+    link: "https://github.com/PushkarSikharam/Corpus-Christi-Rainfall-Prediction-Model",
+  },
+];

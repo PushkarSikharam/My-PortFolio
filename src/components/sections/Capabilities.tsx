@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { capabilities } from "@/data/data";
 
 const sizeByTitle: Record<string, string> = {
-  "LLM Applications": "md:col-span-2 md:row-span-2",
+  "LLM Applications": "md:col-span-2",
   "Data Engineering": "md:col-span-1",
   "Backend Systems": "md:col-span-1",
   "ML Systems & Analytics": "md:col-span-1",
@@ -21,7 +21,7 @@ export default function Capabilities() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 auto-rows-fr gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {capabilities.map((cap, i) => (
           <motion.div
             key={cap.title}
