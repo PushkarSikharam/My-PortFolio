@@ -3,7 +3,7 @@ export const experience = [
     id: "grad-research",
     role: "Graduate Research Assistant",
     company: "Texas A&M University - Corpus Christi",
-    duration: "2025 - Present",
+    duration: "May 2025 - May 2026",
     link: "https://github.com/PushkarSikharam/Vulnerability-Detection-on-CodeBase",
     bullets: [
       "Led an empirical study benchmarking 3 frontier LLMs (Gemini 2.5 Flash, Claude 3.5 Sonnet, GPT-4o) across 810 total assessments on their ability to detect real-world CVEs in LLM-Powered Applications - submitted to ACSAC 2026.",
