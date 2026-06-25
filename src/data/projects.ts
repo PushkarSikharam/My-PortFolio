@@ -81,24 +81,24 @@ export const projects = [
     githubUrl: "https://github.com/abhishekjoshi007/CryptoFusion",
   },
   {
-    id: "rainfall-prediction",
-    title: "Hybrid Rainfall Prediction Model",
-    summary: "A local rainfall forecaster for Corpus Christi that used Prophet for seasonality and XGBoost for what the baseline kept missing.",
-    tags: ["Time-Series", "XGBoost", "Prophet", "Python"],
-    problem: "Forecasting daily rainfall accurately typically requires massive climate simulators, posing challenges for lightweight, resource-constrained environments.",
-    architecture: "Meteostat API -> feature engineering -> Prophet seasonality baseline -> XGBoost residual modeling -> hybrid forecast",
+    id: "coastal-hrrr-rainfall",
+    title: "Coastal HRRR Rainfall Post-Processing",
+    summary: "A leakage-controlled weather research pipeline for correcting hourly HRRR rainfall forecasts at Texas Coastal Bend stations.",
+    tags: ["Time-Series", "Weather Data", "NOAA HRRR", "Python"],
+    problem: "Raw HRRR forecasts can miss point rainfall behavior at coastal stations because small-scale storms, sea-breeze boundaries, and rapid convective changes create local errors.",
+    architecture: "NOAA HRRR + ISD station observations + MRMS radar QPE -> forecast-identity validation -> event-aware correction model -> KCRP test and KRKP spatial-transfer validation",
     decisions: [
-      "Prophet handled the broad seasonal curve; XGBoost was trained on the residuals where the simple baseline still left signal behind.",
-      "Lag and rolling-window features made the model more useful for local weather history than a plain daily series.",
-      "The practical win was lowering MAE from 3.16 mm to 2.18 mm with a lightweight pipeline."
+      "Rebuilt the earlier rainfall prototype around forecast identity, so every feature had to be available at the forecast initialization time.",
+      "Used MRMS radar-derived lag features and station state features to correct HRRR without leaking future observations into the model.",
+      "Kept the claim boundary honest: KCRP was the primary station, and KRKP was a bounded spatial-transfer validation rather than a universal regional generalization claim."
     ],
     metrics: [
-      { label: "Baseline MAE", value: "3.16 mm" },
-      { label: "Best MAE", value: "2.18 mm" },
-      { label: "Final RMSE", value: "6.25 mm" },
-      { label: "Final R2", value: "0.29" }
+      { label: "KCRP MAE", value: "0.12 -> 0.06" },
+      { label: "KCRP RMSE", value: "1.28 -> 0.54" },
+      { label: "KRKP HRRR IDs", value: "42.8k" },
+      { label: "Transfer Stations", value: "2" }
     ],
-    githubUrl: "https://github.com/PushkarSikharam/Corpus-Christi-Rainfall-Prediction-Model",
+    githubUrl: "https://github.com/PushkarSikharam/Coastal-HRRR-Rainfall-Post-Processing-for-the-Texas-Coastal-Bend",
   },
   {
     id: "helmet-detection",
@@ -117,5 +117,25 @@ export const projects = [
       { label: "Research Output", value: "IEEE 2023" }
     ],
     githubUrl: "https://github.com/PushkarSikharam/Helmet_detection",
+  },
+  {
+    id: "cryptostalker",
+    title: "CryptoStalker",
+    summary: "A crypto portfolio and trade-signal application that combines Bitcoin price forecasting, sentiment-aware news signals, and portfolio tracking.",
+    tags: ["Machine Learning", "Random Forest", "Sentiment Analysis", "Portfolio Tracking"],
+    problem: "Crypto investors need usable signals and portfolio visibility in a market where price movement is volatile and forecast interpretation requires caution.",
+    architecture: "Crypto market data + sentiment/news signals -> ML forecasting comparison -> trade-signal recommendations -> portfolio tracking and insights",
+    decisions: [
+      "Compared multiple ML algorithms for Bitcoin forecasting and surfaced Random Forest as the strongest performer in the study.",
+      "Combined price forecasting with sentiment-driven trending news so recommendations were not based on market history alone.",
+      "Added portfolio tracking so users could connect predictions and buy/sell signals back to their existing holdings."
+    ],
+    metrics: [
+      { label: "ML Algorithms", value: "3" },
+      { label: "Datasets", value: "2" },
+      { label: "Top Model", value: "Random Forest" },
+      { label: "Product Scope", value: "Portfolio + Signals" }
+    ],
+    githubUrl: "https://github.com/PushkarSikharam/CryptoStalker",
   },
 ];

@@ -65,19 +65,6 @@ export default function Experience() {
                 </span>
               ))}
             </div>
-
-            {exp.link && (
-              <div className="mt-4">
-                <a
-                  href={exp.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-accent/80 transition-colors"
-                >
-                  View Research Repository <ExternalLink className="w-4 h-4" />
-                </a>
-              </div>
-            )}
           </motion.div>
         ))}
       </div>

@@ -72,6 +72,38 @@ export const vulnerabilityFamilies = [
 
 export const relatedResearch = [
   {
+    slug: "coastal-hrrr-rainfall",
+    title: "Coastal HRRR Rainfall Post-Processing",
+    venue: "Independent Research",
+    status: "Completed",
+    summary:
+      "A leakage-controlled post-processing study for hourly HRRR rainfall forecasts along the Texas Coastal Bend, built around forecast identity checks, NOAA station data, MRMS radar-derived lag features, and bounded spatial-transfer validation.",
+    proof:
+      "Reduced KCRP chronological-test MAE from 0.12 to 0.06 and RMSE from 1.28 to 0.54 with an event-aware HRRR + station + MRMS correction model.",
+    terminalLines: [
+      "> kcrp_mae: 0.12 -> 0.06",
+      "> kcrp_rmse: 1.28 -> 0.54",
+      "> kcrp_f1: 0.34 -> 0.38",
+      "> krkp_hrrr_ids: 42.8k verified",
+    ],
+    findings: [
+      "The final model preserved forecast identity: features were admitted only if they were available at forecast initialization time.",
+      "A two-stage event-aware model improved rainfall amount error, F1, CSI, recall, and probability calibration over the raw HRRR baseline.",
+      "Spatial-transfer validation at KRKP improved error and event skill relative to raw HRRR, while clearly bounding the claim to KCRP and KRKP rather than overstating regional generalization.",
+    ],
+    method: [
+      "Built each row around one issued forecast, one station, and one lead time so the model never mixed future observations into current forecasts.",
+      "Combined raw HRRR point rainfall, NOAA station lag/state features, MRMS one-hour radar QPE lags, and lead-time features.",
+      "Validated the primary KCRP result on a chronological holdout, then tested bounded spatial transfer at KRKP with verified HRRR forecast identities.",
+    ],
+    boundary: [
+      "Does not claim universal regional generalization beyond the KCRP and KRKP study scope.",
+      "Does not claim operational readiness without additional monitoring and station expansion.",
+      "Does not use future observations, test rows, or broad feature expansion to inflate the result.",
+    ],
+    link: "https://github.com/PushkarSikharam/Coastal-HRRR-Rainfall-Post-Processing-for-the-Texas-Coastal-Bend",
+  },
+  {
     slug: "crypto-fusion",
     title: "Crypto Fusion & Forecasting",
     venue: "ICCSMM 2025",
@@ -91,28 +123,15 @@ export const relatedResearch = [
       "Sentiment and market features were evaluated against portfolio-level outcomes, not only prediction error.",
       "The strongest practical result was the combined RMSE reduction and Sharpe-ratio lift across a broad monitored asset set.",
     ],
+    method: [
+      "Joined market history with news and social sentiment signals instead of treating price as the only useful input.",
+      "Aligned heterogeneous time-series and text-derived features before model comparison.",
+      "Evaluated forecasting quality with error, directional accuracy, and portfolio-facing metrics.",
+    ],
+    boundary: [
+      "The result is framed as research evidence, not investment advice.",
+      "Performance is reported as historical model evaluation, not a guarantee of future market behavior.",
+    ],
     link: "https://github.com/abhishekjoshi007/CryptoFusion",
-  },
-  {
-    slug: "rainfall-prediction",
-    title: "Hybrid Rainfall Prediction Model",
-    venue: "Independent Research",
-    status: "Developed",
-    summary:
-      "A Corpus Christi rainfall forecasting model combining Prophet seasonality with XGBoost residual modeling for lightweight local weather prediction.",
-    proof:
-      "Reduced MAE from 3.16 mm to 2.18 mm using lag features, rolling weather windows, Prophet baselines, and XGBoost residual learning.",
-    terminalLines: [
-      "> baseline_mae: 3.16mm",
-      "> best_mae: 2.18mm",
-      "> final_rmse: 6.25mm",
-      "> final_r2: 0.29",
-    ],
-    findings: [
-      "Prophet captured the seasonal rainfall baseline while XGBoost modeled nonlinear residual behavior.",
-      "Lag and rolling-window features made the model more useful for local Corpus Christi weather history.",
-      "The hybrid approach reduced MAE while staying lightweight enough for a practical forecasting workflow.",
-    ],
-    link: "https://github.com/PushkarSikharam/Corpus-Christi-Rainfall-Prediction-Model",
   },
 ];

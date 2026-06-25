@@ -22,6 +22,8 @@ function projectProofLine(project: (typeof projects)[number]) {
       return "Scoped to the TAMU-CC corpus, tested with about 10 users, and built with WhisperX voice input.";
     case "helmet-detection":
       return "Uses two pretrained Haar cascades for rider-region and number-plate detection, with IEEE 2023 publication linkage.";
+    case "cryptostalker":
+      return "Compared 3 forecasting algorithms, used Random Forest as the strongest model, and paired forecasts with sentiment-aware trade signals.";
     default:
       return null;
   }
@@ -29,7 +31,7 @@ function projectProofLine(project: (typeof projects)[number]) {
 
 export default function Projects() {
   const visibleProjects = projects.filter(
-    (project) => !["github-cve", "crypto-fusion", "rainfall-prediction"].includes(project.id)
+    (project) => !["github-cve", "crypto-fusion", "coastal-hrrr-rainfall"].includes(project.id)
   );
   const featured = visibleProjects.slice(0, 2);
   const remaining = visibleProjects.slice(2);

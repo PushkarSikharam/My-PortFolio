@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, FileCheck2, FlaskConical, ShieldCheck } from "lucide-react";
+import CoastalResearchPage from "@/components/sections/CoastalResearchPage";
 import { relatedResearch } from "@/data/research";
 
 type Props = {
@@ -36,8 +37,12 @@ export default function ResearchFindingsPage({ params }: Props) {
     notFound();
   }
 
+  if (item.slug === "coastal-hrrr-rainfall") {
+    return <CoastalResearchPage item={item} />;
+  }
+
   return (
-    <main className="max-w-4xl mx-auto px-6 py-12">
+    <main className="max-w-5xl mx-auto px-6 py-12">
       <Link
         href="/#research"
         className="inline-flex items-center gap-2 text-sm font-medium text-muted hover:text-foreground transition-colors mb-12"
@@ -47,15 +52,23 @@ export default function ResearchFindingsPage({ params }: Props) {
       </Link>
 
       <section className="mb-14">
-        <p className="text-sm font-mono text-accent uppercase tracking-wider mb-4">
-          Research Findings
-        </p>
-        <h1 className="text-4xl md:text-6xl font-display font-bold leading-tight mb-5">
+        <div className="flex items-center gap-3 mb-5">
+          <FlaskConical className="h-7 w-7 text-accent" />
+          <p className="text-sm font-mono text-muted uppercase tracking-wider">
+            Research Findings
+          </p>
+        </div>
+        <h1 className="text-4xl md:text-6xl font-display font-bold leading-tight mb-5 max-w-4xl">
           {item.title}
         </h1>
-        <p className="text-lg text-muted font-mono mb-8">
-          {item.venue} / {item.status}
-        </p>
+        <div className="mb-8 flex flex-wrap items-center gap-3">
+          <span className="rounded-full border border-accent/40 bg-accent/10 px-4 py-1.5 text-sm font-mono text-accent">
+            {item.venue}
+          </span>
+          <span className="rounded-full border border-border bg-surface px-4 py-1.5 text-sm font-mono text-muted">
+            {item.status}
+          </span>
+        </div>
         <p className="text-foreground/75 leading-relaxed text-lg max-w-3xl">
           {item.summary}
         </p>
@@ -70,7 +83,10 @@ export default function ResearchFindingsPage({ params }: Props) {
         </div>
 
         <div className="p-6 md:p-8">
-          <h2 className="text-2xl font-display font-bold mb-6">Key Results</h2>
+          <div className="mb-6 flex items-center gap-3">
+            <FileCheck2 className="h-5 w-5 text-accent" />
+            <h2 className="text-2xl font-display font-bold">Key Results</h2>
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
             {item.terminalLines.map((line) => (
               <div key={line} className="bg-background border border-border rounded-lg p-4 font-mono text-sm text-foreground">
@@ -95,6 +111,35 @@ export default function ResearchFindingsPage({ params }: Props) {
           ))}
         </div>
       </section>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-10">
+        <section className="card-base p-6 md:p-8">
+          <h2 className="text-2xl font-display font-bold mb-5">Research Design</h2>
+          <div className="space-y-4">
+            {item.method.map((method) => (
+              <div key={method} className="flex gap-3 text-foreground/75 leading-relaxed">
+                <span className="mt-2 h-1.5 w-1.5 rounded-full bg-safe shrink-0" />
+                <p>{method}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="card-base p-6 md:p-8">
+          <div className="mb-5 flex items-center gap-3">
+            <ShieldCheck className="h-5 w-5 text-accent" />
+            <h2 className="text-2xl font-display font-bold">Claim Boundary</h2>
+          </div>
+          <div className="space-y-4">
+            {item.boundary.map((boundary) => (
+              <div key={boundary} className="flex gap-3 text-foreground/75 leading-relaxed">
+                <span className="mt-2 h-1.5 w-1.5 rounded-full bg-accent shrink-0" />
+                <p>{boundary}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
 
       <a
         href={item.link}

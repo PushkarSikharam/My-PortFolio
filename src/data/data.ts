@@ -9,8 +9,8 @@ export const experience = [
       "Led an empirical study benchmarking 3 frontier LLMs (Gemini 2.5 Flash, Claude 3.5 Sonnet, GPT-4o) across 810 total assessments on their ability to detect real-world CVEs in LLM-Powered Applications - submitted to ACSAC 2026.",
       "Built a full-stack CVE mining and benchmarking pipeline: GitHub API data collection, regex/CWE analysis, version resolution, multi-model evaluation runners, and an automated rescoring engine for reproducible results.",
       "Discovered severe patch blindness across all models - up to 56.5% of patched (safe) code flagged as vulnerable - establishing that no current LLM is reliable as a standalone security auditor.",
-      "Engineered multimodal data pipelines for Crypto Fusion across market, Reddit, and news sources for 200+ assets, improving forecasting quality by 8.3% RMSE with a +0.29 Sharpe ratio lift.",
-      "Built a hybrid Prophet + XGBoost rainfall forecasting model for Corpus Christi, reducing MAE from 3.16 mm to 2.18 mm through lagged features, rolling windows, and residual modeling."
+      "Developed a leakage-controlled HRRR rainfall post-processing study for the Texas Coastal Bend, reducing KCRP chronological-test MAE from 0.12 to 0.06 with forecast-identity checks, station features, and MRMS radar lags.",
+      "Engineered multimodal data pipelines for Crypto Fusion across market, Reddit, and news sources for 200+ assets, improving forecasting quality by 8.3% RMSE with a +0.29 Sharpe ratio lift."
     ],
     tech: ["Python", "LLMs", "Cybersecurity", "Data Pipelines", "Benchmarking", "Time-Series"]
   },
@@ -51,7 +51,7 @@ export const capabilities = [
     title: "ML Systems & Analytics",
     summary: "Applying machine learning and statistical modeling to solve forecasting, optimization, and decision problems.",
     items: ["Time-Series Forecasting", "Sentiment Modeling", "Multimodal Features", "Evaluation & Optimization"],
-    tech: "XGBoost, Prophet, Transformers, PyTorch"
+    tech: "XGBoost, scikit-learn, PyTorch, Pandas"
   },
   {
     title: "Deployment & MLOps",

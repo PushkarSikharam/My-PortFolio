@@ -116,6 +116,14 @@
       type-reveal 900ms steps(var(--chars)) forwards,
       cursor-blink 800ms step-end infinite;
   }
+
+  .glossary-ticker {
+    animation: glossary-ticker 48s linear infinite;
+  }
+
+  .glossary-ticker:hover {
+    animation-play-state: paused;
+  }
 }
 
 @keyframes type-reveal {
@@ -130,5 +138,22 @@
 @keyframes cursor-blink {
   50% {
     border-color: transparent;
+  }
+}
+
+@keyframes glossary-ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glossary-ticker {
+    animation: none;
+    flex-wrap: wrap;
+    width: auto;
   }
 }
